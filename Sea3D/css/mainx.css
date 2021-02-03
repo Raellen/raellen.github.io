@@ -1,0 +1,81 @@
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+}
+
+.container{
+    width: 1080px;
+    margin: auto;
+}
+
+/* 功能 */
+.parallax {
+    background: fixed;
+}
+
+
+.flex {
+    display: flex;
+}
+
+.justify-content-center{
+    justify-content: center;
+}
+
+.justify-content-end{
+    justify-content: flex-end;
+}
+
+.justify-content-around{
+    justify-content: space-around;
+}
+
+.justify-content-between{
+    justify-content: space-between;
+}
+
+
+/* nav */
+nav {
+    display: sticky;
+    height: 100px;
+    background-color: #000;
+
+    /* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/#000000+0,000000+100&1+0,0.4+100 */
+    background: -moz-linear-gradient(top, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 0.4) 100%);
+    /* FF3.6-15 */
+    background: -webkit-linear-gradient(top, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 0.4) 100%);
+    /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 0.4) 100%);
+    /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#000000', endColorstr='#66000000', GradientType=0);
+    /* IE6-9 */
+
+
+}
+ul{
+    height: 100px; 
+    list-style-type: none;
+}
+
+li{
+ 
+    color: aliceblue;
+    text-align: center;
+    line-height: 100px;
+    cursor: pointer;
+}
+
+/* banner */
+.banner{
+   
+    background-image: url("../images/banner/banner-1.png");
+   
+}
