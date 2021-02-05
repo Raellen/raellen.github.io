@@ -1,0 +1,55 @@
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  font-family: "Noto Sans TC", sans-serif;
+}
+
+.navbar-brand img {
+  height: 50px;
+  width: auto;
+}
+
+nav {
+  /* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/#000000+0,000000+100&1+0,0.4+100 */
+  /* FF3.6-15 */
+  /* Chrome10-25,Safari5.1-6 */
+  background: -webkit-gradient(linear, left top, left bottom, from(black), to(rgba(0, 0, 0, 0.4)));
+  background: linear-gradient(to bottom, black 0%, rgba(0, 0, 0, 0.4) 100%);
+  /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#000000', endColorstr='#66000000', GradientType=0);
+  /* IE6-9 */
+}
+
+.parallax {
+  background: url("https://source.unsplash.com/twukN12EN7c/1920x1080") no-repeat center center fixed;
+}
+
+img {
+  -o-object-fit: cover;
+     object-fit: cover;
+  width: 100%;
+}
+
+#process img {
+  -o-object-fit: cover;
+     object-fit: cover;
+  width: 100%;
+}
+
+@media (min-width: 996px) {
+  #process img {
+    width: 65%;
+  }
+}
+
+p {
+  text-align: center;
+}
+
+.contact-card {
+  border-width: 5px !important;
+}
+/*# sourceMappingURL=style.css.map */
