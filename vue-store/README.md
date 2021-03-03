@@ -1,4 +1,4 @@
-# vue-stores
+# vue-store
 
 > A Vue.js project
 

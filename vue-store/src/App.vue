@@ -8,7 +8,7 @@
 <script>
 export default {
   name: 'App',
-  created(){
+    created(){
     const api = `${process.env.APIPATH}/api/${process.env.CUSTOMPATH}/products`//'https://vue-course-api.hexschool.io/api/raellen/products'
     console.log(process.env.APIPATH, process.env.CUSTOMPATH);
     this.$http.get(api).then((response) => {
