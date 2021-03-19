@@ -5,11 +5,19 @@
     <lastmod>2021-03-19T03:00:00Z</lastmod>
   </url>
   <url>
+    <loc>https://raellen.github.io/tags/hugo/</loc>
+    <lastmod>2021-03-19T03:00:00Z</lastmod>
+  </url>
+  <url>
     <loc>https://raellen.github.io/posts/</loc>
     <lastmod>2021-03-19T03:00:00Z</lastmod>
   </url>
   <url>
     <loc>https://raellen.github.io/</loc>
+    <lastmod>2021-03-19T03:00:00Z</lastmod>
+  </url>
+  <url>
+    <loc>https://raellen.github.io/tags/</loc>
     <lastmod>2021-03-19T03:00:00Z</lastmod>
   </url>
   <url>
@@ -22,8 +30,5 @@
   </url>
   <url>
     <loc>https://raellen.github.io/categories/</loc>
-  </url>
-  <url>
-    <loc>https://raellen.github.io/tags/</loc>
   </url>
 </urlset>
