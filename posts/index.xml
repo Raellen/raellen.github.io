@@ -1,19 +1,29 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Posts on RAELLEN BLOG</title>
+    <title>Posts on RAELLEN </title>
     <link>https://raellen.github.io/posts/</link>
-    <description>Recent content in Posts on RAELLEN BLOG</description>
+    <description>Recent content in Posts on RAELLEN </description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Fri, 19 Mar 2021 03:00:00 +0000</lastBuildDate><atom:link href="https://raellen.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 24 Mar 2021 03:00:00 +0000</lastBuildDate><atom:link href="https://raellen.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Vue:Props及Emit</title>
+      <link>https://raellen.github.io/vueprops%E5%8F%8Aemit/</link>
+      <pubDate>Wed, 24 Mar 2021 03:00:00 +0000</pubDate>
+      
+      <guid>https://raellen.github.io/vueprops%E5%8F%8Aemit/</guid>
+      <description>And go...
+&amp;lt;!doctype html&amp;gt; &amp;lt;html lang=&amp;#34;en&amp;#34;&amp;gt; &amp;lt;head&amp;gt; &amp;lt;meta charset=&amp;#34;utf-8&amp;#34;&amp;gt; &amp;lt;title&amp;gt;Title&amp;lt;/title&amp;gt; &amp;lt;/head&amp;gt; &amp;lt;body&amp;gt; &amp;lt;p&amp;gt;Lorem...&amp;lt;/p&amp;gt; &amp;lt;/body&amp;gt; &amp;lt;/html&amp;gt; </description>
+    </item>
+    
     <item>
       <title>Hello World</title>
       <link>https://raellen.github.io/hello-world/</link>
       <pubDate>Fri, 19 Mar 2021 03:00:00 +0000</pubDate>
       
       <guid>https://raellen.github.io/hello-world/</guid>
-      <description>And go&amp;hellip;</description>
+      <description>And go...</description>
     </item>
     
   </channel>
