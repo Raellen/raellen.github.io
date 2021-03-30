@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Notion on RAELLEN </title>
+    <link>https://raellen.github.io/tags/notion/</link>
+    <description>Recent content in Notion on RAELLEN </description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Tue, 30 Mar 2021 14:00:00 +0000</lastBuildDate><atom:link href="https://raellen.github.io/tags/notion/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Notion:Database基本用法</title>
+      <link>https://raellen.github.io/notiondatabase/</link>
+      <pubDate>Tue, 30 Mar 2021 14:00:00 +0000</pubDate>
+      
+      <guid>https://raellen.github.io/notiondatabase/</guid>
+      <description>  Relation (關聯)  在表單後建立ADVANED / ↗︎Relation 選擇Select a database，並且關聯到B表單 點擊框框添加需要關聯的資料       Roll up (查找)  建立了Relation後才能使用Rollup 在B表單中建立 ADVANED / 🔍 Rollup  在Relation中 選取A表單         Create Linked Database (連結資料庫)  打/ 輸入Create Linked Database 選擇要連結的資料庫，完成    </description>
+    </item>
+    
+  </channel>
+</rss>

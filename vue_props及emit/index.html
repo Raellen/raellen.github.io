@@ -1,0 +1,571 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no">
+<meta name="hugo-theme" content="Axiom 0.8.0">
+
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/image/brand/favicon.png">
+  <link rel="icon" type="image/x-icon" href="/favicon.ico">
+  <link rel="apple-touch-icon" href="/image/brand/icon-1-1.png">
+  <link rel="canonical" href="https://raellen.github.io/vue_props%E5%8F%8Aemit/">
+<link rel="preload" as="style" href="/bundle.css?v=1617116634" media="all">
+<link rel="stylesheet" href="/bundle.css?v=1617116634" media="all">
+<style>.cdata pre{background-color:#1f2937;color:#e5e7eb}.cdata :not(pre)>code{background-color:#f3f4f6;color:#7c3aed}.chroma .err{background-color:#991b1b;color:#fecaca}.chroma .hl{background-color:#374151}.chroma .ln{color:#9ca3af}.chroma .k,.chroma .kc,.chroma .kd,.chroma .kn,.chroma .kp,.chroma .kr{color:#60a5fa}.chroma .kt{color:#a78bfa}.chroma .na,.chroma .nb{color:#fbbf24}.chroma .nc{color:#f87171}.chroma .no{color:#34d399}.chroma .nd{color:#f87171}.chroma .ne{color:#f87171}.chroma .nf{color:#fbbf24}.chroma .nt{color:#f87171}.chroma .l{color:#a78bfa}.chroma .dl,.chroma .ld,.chroma .s,.chroma .s2,.chroma .sa,.chroma .sb,.chroma .sc,.chroma .sd{color:#34d399}.chroma .se{color:#9ca3af}.chroma .s1,.chroma .sh,.chroma .si,.chroma .sr,.chroma .ss,.chroma .sx{color:#34d399}.chroma .il,.chroma .m,.chroma .mb,.chroma .mf,.chroma .mh,.chroma .mi,.chroma .mo{color:#a78bfa}.chroma .o,.chroma .ow{color:#93c5fd}.chroma .c,.chroma .c1,.chroma .ch,.chroma .cm,.chroma .cp,.chroma .cpf,.chroma .cs,.chroma .p{color:#9ca3af}.chroma .ge{font-style:italic}.chroma .gs{font-weight:700}
+</style>
+
+<link rel="preload" as="image" href="https://upload.wikimedia.org/wikipedia/commons/thumb/9/95/Vue.js_Logo_2.svg/323px-Vue.js_Logo_2.svg.png">
+
+<title>Vue 基本介紹 : RAELLEN </title>
+
+<meta property="og:title" content="Vue 基本介紹">
+<meta property="og:site_name" content="RAELLEN ">
+<meta property="og:url" content="https://raellen.github.io/vue_props%E5%8F%8Aemit/">
+<link rel="image_src" href="https://upload.wikimedia.org/wikipedia/commons/thumb/9/95/Vue.js_Logo_2.svg/323px-Vue.js_Logo_2.svg.png">
+<meta property="og:image" content="https://upload.wikimedia.org/wikipedia/commons/thumb/9/95/Vue.js_Logo_2.svg/323px-Vue.js_Logo_2.svg.png">
+<meta property="og:image:width" content="2048">
+<meta property="og:image:height" content="1024">
+<meta property="og:type" content="article">
+<meta property="og:locale" content="en">
+<meta property="og:description" content="Vue.js 介紹 Vue.js 具備直觀的語法讓開發者在學習上都可以輕鬆上手，搭配它簡單的雙向綁定，讓我們可以專注於資料狀態的管理。 搭配它多樣化的延伸工具，可以開發 SPA ( Single Page Application )。  MVVM 結構 Vue不是一個完全MVVM的架構，只是受到MVVM的啟發。 我們在畫面上看到的外觀就是View，而我們所操控的就是Model。    資料的動態 ViewModel是與畫面做綁定的，因此寫程式碼時只需要寫Model，資料變動的同時，ViewModel就會去控制視圖的變化。 因此調整視圖或是資料時，View及Model兩邊的資訊會同時變更。    可以放入多個Vue app(應用程式) 宣告多個 Vue 應用程式，在Vue的開發者工具中就會看見多個&amp;lt;root&amp;gt; 但通常只會建立一個應用程式。    不適用巢狀結構 應用程式中不能包另外一個應用程式。    開發環境 Vue 是透過資料來驅動畫面的，而資料是不斷在變動的，因此除錯時需要了解目前資料的狀態。 基於以上狀況， Vue 較難以使用console.">
+<meta name="description" content="Vue.js 介紹 Vue.js 具備直觀的語法讓開發者在學習上都可以輕鬆上手，搭配它簡單的雙向綁定，讓我們可以專注於資料狀態的管理。 搭配它多樣化的延伸工具，可以開發 SPA ( Single Page Application )。  MVVM 結構 Vue不是一個完全MVVM的架構，只是受到MVVM的啟發。 我們在畫面上看到的外觀就是View，而我們所操控的就是Model。    資料的動態 ViewModel是與畫面做綁定的，因此寫程式碼時只需要寫Model，資料變動的同時，ViewModel就會去控制視圖的變化。 因此調整視圖或是資料時，View及Model兩邊的資訊會同時變更。    可以放入多個Vue app(應用程式) 宣告多個 Vue 應用程式，在Vue的開發者工具中就會看見多個&amp;lt;root&amp;gt; 但通常只會建立一個應用程式。    不適用巢狀結構 應用程式中不能包另外一個應用程式。    開發環境 Vue 是透過資料來驅動畫面的，而資料是不斷在變動的，因此除錯時需要了解目前資料的狀態。 基於以上狀況， Vue 較難以使用console.">
+<meta property="og:updated_time" content="2021-03-24T03:00:00Z">
+<meta property="fb:app_id" content="">
+<meta name="author" content="Raellen">
+<meta property="article:author" content="https://example.com/">
+<meta property="article:published_time" content="2021-03-24T03:00:00Z">
+<meta property="article:modified_time" content="2021-03-24T03:00:00Z">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Vue 基本介紹",
+  "alternativeHeadline": "簡單介紹何謂 Vue.js ？ 淺談類MVVM的結構及雙向綁定的特性。",
+  "url": "https://raellen.github.io/vue_props%E5%8F%8Aemit/",
+  "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/95/Vue.js_Logo_2.svg/323px-Vue.js_Logo_2.svg.png",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://raellen.github.io/vue_props%E5%8F%8Aemit/"
+  },
+  "description": "Vue.js 介紹 Vue.js 具備直觀的語法讓開發者在學習上都可以輕鬆上手，搭配它簡單的雙向綁定，讓我們可以專注於資料狀態的管理。 搭配它多樣化的延伸工具，可以開發 SPA ( Single Page Application )。  MVVM 結構 Vue不是一個完全MVVM的架構，只是受到MVVM的啟發。 我們在畫面上看到的外觀就是View，而我們所操控的就是Model。    資料的動態 ViewModel是與畫面做綁定的，因此寫程式碼時只需要寫Model，資料變動的同時，ViewModel就會去控制視圖的變化。 因此調整視圖或是資料時，View及Model兩邊的資訊會同時變更。    可以放入多個Vue app(應用程式) 宣告多個 Vue 應用程式，在Vue的開發者工具中就會看見多個\u0026lt;root\u0026gt; 但通常只會建立一個應用程式。    不適用巢狀結構 應用程式中不能包另外一個應用程式。    開發環境 Vue 是透過資料來驅動畫面的，而資料是不斷在變動的，因此除錯時需要了解目前資料的狀態。 基於以上狀況， Vue 較難以使用console.",
+  "author": {
+    "@type": "Person",
+    "name": "Raellen"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "RAELLEN ",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://raellen.github.io/image/brand/icon-1-1.png"
+    }
+  },
+  "datePublished": "2021-03-24T03:00:00Z",
+  "dateModified": "2021-03-24T03:00:00Z",
+  "articleBody": "\u003ch2 id=\"vuejs-介紹\"\u003eVue.js 介紹\u003c/h2\u003e\n\u003cp\u003eVue.js 具備直觀的語法讓開發者在學習上都可以輕鬆上手，搭配它簡單的雙向綁定，讓我們可以專注於資料狀態的管理。\n搭配它多樣化的延伸工具，可以開發 SPA ( Single Page Application )。\u003c/p\u003e\n\u003cul\u003e\n\u003cli\u003e\u003ca href=\"###MVVM-%E7%9A%84%E6%A6%82%E5%BF%B5\"\u003eMVVM 結構\u003c/a\u003e\nVue不是一個完全MVVM的架構，只是受到MVVM的啟發。\n\u003cimg src=\"https://i.imgur.com/1h9vTaA.png\" alt=\"\"\u003e\n我們在畫面上看到的外觀就是View，而我們所操控的就是Model。\u003c/li\u003e\n\u003c/ul\u003e\n\u003cp\u003e\n\u003cul\u003e\n\u003cli\u003e資料的動態\nViewModel是與畫面做綁定的，因此寫程式碼時只需要寫Model，資料變動的同時，ViewModel就會去控制視圖的變化。\n因此調整視圖或是資料時，View及Model兩邊的資訊會同時變更。\u003c/li\u003e\n\u003c/ul\u003e\n\u003cp\u003e\n\u003cul\u003e\n\u003cli\u003e可以放入多個Vue app(應用程式)\n宣告多個 Vue 應用程式，在Vue的開發者工具中就會看見多個\u003ccode\u003e\u0026lt;root\u0026gt;\u003c/code\u003e\n但通常只會建立一個應用程式。\u003c/li\u003e\n\u003c/ul\u003e\n\u003cp\u003e\n\u003cul\u003e\n\u003cli\u003e\u003cstrong\u003e不適用\u003c/strong\u003e巢狀結構\n應用程式中不能包另外一個應用程式。\u003c/li\u003e\n\u003c/ul\u003e\n\u003cp\u003e\n\u003cul\u003e\n\u003cli\u003e開發環境\nVue 是透過資料來驅動畫面的，而資料是不斷在變動的，因此除錯時需要了解目前資料的狀態。\n基於以上狀況， Vue 較難以使用\u003ccode\u003econsole.log\u003c/code\u003e的方式來進行除錯， 利用瀏覽器中 Vue 插件的環境來除錯，是比較理想的方式。\u003c/li\u003e\n\u003c/ul\u003e\n\u003ch3 id=\"透過cdn-建置新專案\"\u003e透過CDN 建置新專案\u003c/h3\u003e\n\u003cp\u003e對於製作原型或學習，你可以這樣使用最新版本：\u003c/p\u003e\n\u003cpre\u003e\u003ccode\u003e\u0026lt;script src=\u0026quot;https://cdn.jsdelivr.net/npm/vue/dist/vue.js\u0026quot;\u0026gt;\u0026lt;/script\u0026gt;\n\u003c/code\u003e\u003c/pre\u003e\u003cp\u003e對於生產環境，我們推薦鏈接到一個明確的版本號和構建文件，以避免新版本造成的不可預期的破壞：\u003c/p\u003e\n\u003cpre\u003e\u003ccode\u003e\u0026lt;script src=\u0026quot;https://cdn.jsdelivr.net/npm/vue@2.6.12\u0026quot;\u0026gt;\u0026lt;/script\u0026gt;\n\u003c/code\u003e\u003c/pre\u003e\u003ch3 id=\"透過vue-cli-建置新專案\"\u003e透過vue-cli 建置新專案\u003c/h3\u003e\n\u003cpre\u003e\u003ccode\u003e$ npm install -g vue-cli\n$ vue init webpack-simple [project name]\n\n$ cd [project name]\n$ npm install\n$ npm run dev\n\u003c/code\u003e\u003c/pre\u003e\u003ch3 id=\"建立應用程式\"\u003e建立應用程式\u003c/h3\u003e\n\u003cp\u003eVue在建立時會宣告一個新的 Vue 應用程式，裡面擺放物件；而生成之後必須綁定一個 HTML 的元素。\n而Vue一次只能綁定一個元素，因此綁定ID是比較好的。\u003c/p\u003e\n\u003cp\u003ein body\u003c/p\u003e\n\u003cpre\u003e\u003ccode\u003e\u0026lt;div id=\u0026quot;vueApp\u0026quot;\u0026gt;\n  {{ text }}\n\u0026lt;/div\u0026gt;\n\u003c/code\u003e\u003c/pre\u003e\u003cp\u003ein script\u003c/p\u003e\n\u003cpre\u003e\u003ccode\u003evar app = new Vue({\n  el: '#vueApp',\n  data: {\n    text:'這裡是一串文字',\n    array:[\n    {item1},\n    {item2}\n    ]\n  }\n})\n\u003c/code\u003e\u003c/pre\u003e\u003ch3 id=\"mvvm-的概念\"\u003eMVVM 的概念\u003c/h3\u003e\n\u003cul\u003e\n\u003cli\u003e\u003ca href=\"https://ithelp.ithome.com.tw/articles/10213157\"\u003eMVVM與MVC的差別\u003c/a\u003e\u003c/li\u003e\n\u003c/ul\u003e\n\u003ch4 id=\"mvc-概念\"\u003eMVC 概念\u003c/h4\u003e\n\u003cp\u003e\u003cimg src=\"https://i.imgur.com/sNOvjgw.jpg\" alt=\"\"\u003e\n透過Controller轉接去要求Model取資料\u003c/p\u003e\n\u003ch4 id=\"mvvm-概念\"\u003eMVVM 概念\u003c/h4\u003e\n\u003cp\u003e\u003cimg src=\"https://i.imgur.com/6j29skI.png\" alt=\"\"\u003e\nViewModel是與畫面做綁定的，因此寫程式碼時只需要寫Model，資料變動的同時，ViewModel就會去控制視圖的變化。\u003c/p\u003e\n\u003cp\u003e因此調整視圖或是資料時，View及Model兩邊的資訊會同時變更。\u003c/p\u003e\n\u003ch4 id=\"與傳統jquery的差別\"\u003e與傳統jQuery的差別\u003c/h4\u003e\n\u003cp\u003e傳統的jQuery是直接操作DOM元素，而Vue.js在操作DOM元素時是透過資料的狀態去操作畫面。\u003c/p\u003e\n\u003ch3 id=\"聲明式渲染\"\u003e聲明式渲染\u003c/h3\u003e\n\u003cp\u003eVue.js 的核心是一個允許採用簡潔的模板語法來聲明式地將數據渲染進DOM 的系統：\n在script中綁定好元素，再回到元素中用\u003ccode\u003e{{}}\u003c/code\u003e去呼叫\u003c/p\u003e\n\u003cul\u003e\n\u003cli\u003e在 html 中\u003c/li\u003e\n\u003c/ul\u003e\n\u003cpre\u003e\u003ccode\u003e\u0026lt;div id=\u0026quot;app\u0026quot;\u0026gt;\n  {{ message }}\n\u0026lt;/div\u0026gt;\n\n\u0026lt;script\u0026gt;\nvar app = new Vue({\n  el: '#app',\n  data: {\n    message: 'Hello Vue!'\n  }\n})\n\u0026lt;/script\u0026gt;\n\n\u003c/code\u003e\u003c/pre\u003e\u003ch3 id=\"vue指令\"\u003eVue指令\u003c/h3\u003e\n\u003cp\u003e\u003ca href=\"https://www.cnblogs.com/jianjie/p/12491899.html\"\u003evue指令\u003c/a\u003e\n\u003ca href=\"https://hsuchihting.github.io/vue-js/20200419/2954354756/\"\u003eVue筆記\u003c/a\u003e\n除了使用\u003ccode\u003e{{}}\u003c/code\u003e的方式，也可利用指令的方式來綁定資料。\u003c/p\u003e\n\u003cul\u003e\n\u003cli\u003e\u003ca href=\"###v-model-%E9%9B%99%E5%90%91%E7%B6%81%E5%AE%9A\"\u003ev-model\u003c/a\u003e：可以實現資料的雙向綁定\u003c/li\u003e\n\u003cli\u003ev-text：相當於js的innerText\u003c/li\u003e\n\u003cli\u003ev-html：相當於js的innerHTML\u003c/li\u003e\n\u003cli\u003e\u003ca href=\"###v-bind-%E5%8B%95%E6%85%8B%E5%B1%AC%E6%80%A7%E6%8C%87%E4%BB%A4\"\u003ev-bind\u003c/a\u003e：（單向）動態綁定一個或多個attribute屬性指令\u003c/li\u003e\n\u003cli\u003e\u003ca href=\"####v-for%E5%AF%AB%E6%B3%95\"\u003ev-for、v-if\u003c/a\u003e：做類似forEach的迴圈\u003c/li\u003e\n\u003cli\u003e\u003ca href=\"###v-on-:-%E8%99%95%E7%90%86%E4%BA%92%E5%8B%95%E8%A1%8C%E7%82%BA\"\u003ev-on\u003c/a\u003e：處理互動行為\u003c/li\u003e\n\u003c/ul\u003e\n\u003ch4 id=\"常見簡寫\"\u003e常見簡寫\u003c/h4\u003e\n\u003cul\u003e\n\u003cli\u003e\u003ccode\u003ev-on:\u003c/code\u003e == \u003ccode\u003e@\u003c/code\u003e\u003c/li\u003e\n\u003cli\u003e\u003ccode\u003ev-bind\u003c/code\u003e == \u003ccode\u003e \u003c/code\u003e\u003c/li\u003e\n\u003c/ul\u003e\n\u003c!-- 範例： --\u003e\n\u003ch3 id=\"v-model-雙向綁定\"\u003ev-model 雙向綁定\u003c/h3\u003e\n\u003cp\u003e可以透過本指令，綁定物件的資料。\n說明 : 把 \u003ccode\u003einput的value值\u003c/code\u003e 和 \u003ccode\u003edata里的msg\u003c/code\u003e 绑定到了一起,一方改变,另外一方也会 跟改变\u003c/p\u003e\n\u003cul\u003e\n\u003cli\u003e使用方式 : v-model 一般使用在表單元素上\u003c/li\u003e\n\u003cli\u003e限制使用：\n\u003cul\u003e\n\u003cli\u003e\u003ccode\u003e\u0026lt;input\u0026gt;\u003c/code\u003e\u003c/li\u003e\n\u003cli\u003e\u003ccode\u003e\u0026lt;select\u0026gt;\u003c/code\u003e\u003c/li\u003e\n\u003cli\u003e\u003ccode\u003e\u0026lt;textarea\u0026gt;\u003c/code\u003e\u003c/li\u003e\n\u003cli\u003ecomponents\u003c/li\u003e\n\u003c/ul\u003e\n\u003c/li\u003e\n\u003c/ul\u003e\n\u003cp\u003e\n\u003cul\u003e\n\u003cli\u003e重點 : v-model 使用在不同的表单元素上, 绑定的值不一样\nv-model 绑定到文本输入框里面 =\u0026gt; 绑定是字符串类型的内容\nv-model 绑定到多选框里面  ==\u0026gt; 绑定是布尔类型true/false\u003c/li\u003e\n\u003c/ul\u003e\n\u003cp\u003ein body\u003c/p\u003e\n\u003cpre\u003e\u003ccode\u003e\u0026lt;div id=\u0026quot;vueApp\u0026quot;\u0026gt;\n    \u0026lt;input type=\u0026quot;text\u0026quot; v-model=\u0026quot;message\u0026quot;\u0026gt;\n\u0026lt;/div\u0026gt;\n\u003c/code\u003e\u003c/pre\u003e\u003cp\u003ein script\u003c/p\u003e\n\u003cpre\u003e\u003ccode\u003evar app = new vue({\n    el:'#vueApp',\n    data:{\n        imgSrc=\u0026quot;圖片網址\u0026quot;,\n        className=\u0026quot;img-fluid\u0026quot;\n    }\n})\n\u003c/code\u003e\u003c/pre\u003e\u003ch3 id=\"v-html\"\u003ev-html\u003c/h3\u003e\n\u003cul\u003e\n\u003cli\u003e\n\u003cp\u003e預期：\u003ccode\u003estring\u003c/code\u003e\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003e詳細：\n更新元素的innerHTML。注意：內容按普通HTML插入-不會作為Vue模板進行編譯。如果試圖使用v-html組合模板，可以重新考慮是否通過使用組件來替代。\u003c/p\u003e\n\u003c/li\u003e\n\u003c/ul\u003e\n\u003cp\u003e\u003ca href=\"https://cn.vuejs.org/v2/api/#v-html\"\u003eHtml注意事項\u003c/a\u003e\n在網站上動態渲染任意HTML是非常危險的，因為容易導致XSS攻擊。只在可信內容上使用v-html，永不用在用戶提交的內容上。\u003c/p\u003e\n\u003ch3 id=\"v-bind-動態屬性指令\"\u003ev-bind 動態屬性指令\u003c/h3\u003e\n\u003cp\u003e\u003cstrong\u003e單向\u003c/strong\u003e動態綁定數據（從M-\u0026gt;V）\n透過增加屬性的方式，可以連結圖片或是網址、或是增加class\u003c/p\u003e\n\u003cul\u003e\n\u003cli\u003e\u003ca href=\"https://cn.vuejs.org/v2/api/#v-bind\"\u003ev-bind官方說明\u003c/a\u003e\u003c/li\u003e\n\u003cli\u003e簡寫：\u003ccode\u003ev-bind:\u003c/code\u003e 可簡寫為 \u003ccode\u003e:\u003c/code\u003e\u003c/li\u003e\n\u003c/ul\u003e\n\u003col\u003e\n\u003cli\u003e{{}} 不能用在属性值上, 一般使用在 标签内容部分， \u003cXX\u003e位置\u003c/XX\u003e\u003c/li\u003e\n\u003cli\u003ev-bind 動態綁定一個數據 (單向 M -\u0026gt; V)\u003c/li\u003e\n\u003cli\u003ev-bind 一般使用在屬性上，任意標籤皆可使用\u003c/li\u003e\n\u003c/ol\u003e\n\u003ch3 id=\"v-bindclass-動態切換\"\u003ev-bind:class 動態切換\u003c/h3\u003e\n\u003cp\u003e\u003ca href=\"https://v1-cn.vuejs.org/guide/class-and-style.html\"\u003e官方說明：Class與Style綁定\u003c/a\u003e\u003c/p\u003e\n\u003cul\u003e\n\u003cli\u003e對象語法：我們可以傳給 v-bind:class 一個對象，以動態地切換 class 。注意 v-bind:class 指令可以與普通的 class 特性共存\u003c/li\u003e\n\u003c/ul\u003e\n\u003ch3 id=\"v-if--v-for-動態產生多筆資料於畫面上\"\u003ev-if \u0026amp; v-for 動態產生多筆資料於畫面上\u003c/h3\u003e\n\u003cp\u003edata中可以放入類似JSON的資料結構，也就是可以放置陣列進去。\n添加v-for的屬性做類似forEach的迴圈，並且在標籤中渲染出值。\u003c/p\u003e\n\u003cul\u003e\n\u003cli\u003e顯示陣列中數值\u003c/li\u003e\n\u003c/ul\u003e\n\u003cpre\u003e\u003ccode\u003e \u0026lt;pre\u0026gt;{{陣列名稱}}\u0026lt;/pre\u0026gt;\n\u003c/code\u003e\u003c/pre\u003e\u003ch4 id=\"v-for寫法\"\u003ev-for寫法\u003c/h4\u003e\n\u003cp\u003e作用 ：\n巡訪陣列，創造出對應的標籤。\u003c/p\u003e\n\u003cp\u003e寫法：\n先v-for指定某個陣列，再在標籤中以\u003ccode\u003e{{}}\u003c/code\u003e呼叫該陣列的元素\u003c/p\u003e\n\u003cul\u003e\n\u003cli\u003e基本寫法\u003c/li\u003e\n\u003c/ul\u003e\n\u003cpre\u003e\u003ccode\u003e          陣列元素          \n\u0026lt;li v-for='item in list'\u0026gt;{{ item.name }} {{ item.id }}\u0026lt;/li\u0026gt; \n\u003c/code\u003e\u003c/pre\u003e\u003cul\u003e\n\u003cli\u003e取出陣列索引值\u003c/li\u003e\n\u003c/ul\u003e\n\u003cpre\u003e\u003ccode\u003e            陣列元素,元素對應的索引\n\u0026lt;li v-for='(item,index) in list' \u0026gt;{{ item }} {{ index }}\u0026lt;/li\u0026gt;\n\u003c/code\u003e\u003c/pre\u003e\u003cul\u003e\n\u003cli\u003e巡訪特定對象\u003c/li\u003e\n\u003c/ul\u003e\n\u003cpre\u003e\u003ccode\u003e\u0026lt;li v-for='(value,key) in obj'\u0026gt;{{ value }} {{ key }}\u0026lt;/li\u0026gt;\n\u003c/code\u003e\u003c/pre\u003e\u003cul\u003e\n\u003cli\u003e巡訪次数\u003c/li\u003e\n\u003c/ul\u003e\n\u003cpre\u003e\u003ccode\u003e\u0026lt;li v-for='i in 100'\u0026gt;{{ i }}\u0026lt;/li\u0026gt;\n\u0026lt;li v-for='i in 100'\u0026gt;{{ i - 1 }}\u0026lt;/li\u0026gt;\n\u003c/code\u003e\u003c/pre\u003e\u003cp\u003e範例\u003c/p\u003e\n\u003cul\u003e\n\u003cli\u003e在html中\u003c/li\u003e\n\u003c/ul\u003e\n\u003cpre\u003e\u003ccode\u003e\u0026lt;ui\u0026gt;\n  \u0026lt;li v-for=\u0026quot;item in list\u0026quot;\u0026gt;\n    {{item.name}}\n  \u0026lt;/li\u0026gt;\n\u0026lt;/ui\u0026gt; \n\u003c/code\u003e\u003c/pre\u003e\u003cul\u003e\n\u003cli\u003e在script中\u003c/li\u003e\n\u003c/ul\u003e\n\u003cpre\u003e\u003ccode\u003evar app = new Vue({\n  el: '#app',\n  data: {\n    list: [\n      {\n        name: '小明',\n        age: 16\n      },\n      {\n        name: '媽媽',\n        age: 38,\n      },\n      {\n        name: '漂亮阿姨',\n        age: 24\n      }\n    ]\n  }\n})\n\u003c/code\u003e\u003c/pre\u003e\u003ch4 id=\"v-if\"\u003ev-if\u003c/h4\u003e\n\u003cp\u003e在v-for的迴圈中加入判斷式\u003c/p\u003e\n\u003cp\u003e寫法：\n直接在標籤裡面增加v-for的屬性來添加判斷式\u003c/p\u003e\n\u003cp\u003ein body\u003c/p\u003e\n\u003cpre\u003e\u003ccode\u003e\u0026lt;ul\u0026gt;\n    \u0026lt;li v-for=\u0026quot;item in list\u0026quot; v-if=\u0026quot;item.age \u0026lt; 25\u0026quot;\u0026gt;\n      {{ item.name }} 年齡是 {{ item.age}}\n    \u0026lt;/li\u0026gt;\n\u0026lt;/ul\u0026gt;\n\u003c/code\u003e\u003c/pre\u003e\u003ch3 id=\"v-on--處理互動行為\"\u003ev-on : 處理互動行為\u003c/h3\u003e\n\u003cul\u003e\n\u003cli\u003e\u003ca href=\"https://cn.vuejs.org/v2/api/#v-on\"\u003e官方說明：v-on\u003c/a\u003e\u003c/li\u003e\n\u003cli\u003e\u003ccode\u003ev-on:\u003c/code\u003e 可簡寫為 \u003ccode\u003e@\u003c/code\u003e\u003c/li\u003e\n\u003c/ul\u003e\n\u003cp\u003e綁定事件，觸發方法會寫在html的元件上，而不是Vue.js的原始碼中。\u003c/p\u003e\n\u003cp\u003e寫法：\n在input中用v-model綁定text，並在data底下再新增一個 method 物件，然後使用 \u003ccode\u003ev-on:觸發方式 = \u0026quot;methods\u0026quot;\u003c/code\u003e來綁定物件。\u003c/p\u003e\n\u003cp\u003e在底下利用\u003ccode\u003e{{}}\u003c/code\u003e呼叫新的newText值\u003c/p\u003e\n\u003cpre\u003e\u003ccode\u003e\u0026lt;input v-model=\u0026quot;text\u0026quot;\u0026gt;\n\u0026lt;button v-on:click=\u0026quot;reverseText\u0026quot;\u0026gt;我是按鈕\u0026lt;/button\u0026gt;\n{{newText}}\n\u003c/code\u003e\u003c/pre\u003e\u003ch3 id=\"v-on後加上判斷式\"\u003ev-on後加上判斷式\u003c/h3\u003e\n\u003cp\u003e在v-on後可以加入判斷式，判斷式直接套用物件，就可以不用寫完整的method。\n\u003ccode\u003e\u0026lt;button ＠click=\u0026quot;isTransform = !isTransform\u0026quot;\u0026gt;\u0026lt;/button\u0026gt;\u003c/code\u003e\u003c/p\u003e\n\u003ch4 id=\"關於this在-vue-的用法\"\u003e關於\u003ccode\u003ethis\u003c/code\u003e在 Vue 的用法\u003c/h4\u003e\n\u003cp\u003e在 JavaScript 中 \u003ccode\u003ethis\u003c/code\u003e 在全域環境都會指向 window\n如果在 Vue 中 \u003ccode\u003ethis\u003c/code\u003e則會指向 Vue 的 app\u003c/p\u003e\n\u003cp\u003e利用\u003ccode\u003ethis\u003c/code\u003e指定data底下的物件\u003c/p\u003e\n\u003cul\u003e\n\u003cli\u003e範例：\u003c/li\u003e\n\u003c/ul\u003e\n\u003cpre\u003e\u003ccode\u003e  var app = new Vue({\n    el: '#app',\n    data: {\n      text: '',\n      newText: ''\n    },\n    methods:{\n      reverseText: function(){\n      console.log('點我', this.text);\n      this.text = this.newText;\n      }\n    }\n  });\n\u003c/code\u003e\u003c/pre\u003e\u003ch4 id=\"修飾符\"\u003e修飾符\u003c/h4\u003e\n\u003cp\u003ev-on 搭配修飾符，能夠直接調用事件，而不用通過method。\u003c/p\u003e\n\u003cul\u003e\n\u003cli\u003e\u003cstrong\u003e事件修飾符\u003c/strong\u003e\n\u003cul\u003e\n\u003cli\u003e\u003ca href=\"https://cn.vuejs.org/v2/guide/events.html#%E4%BA%8B%E4%BB%B6%E4%BF%AE%E9%A5%B0%E7%AC%A6\"\u003e官方說明：事件修飾符\u003c/a\u003e\u003c/li\u003e\n\u003cli\u003e範例：v-on:click.prevent，利用修飾符取代\u003ccode\u003eevent.preventDefault();\u003c/code\u003e\u003c/li\u003e\n\u003c/ul\u003e\n\u003c/li\u003e\n\u003c/ul\u003e\n\u003cpre\u003e\u003ccode\u003e\u0026lt;a href=\u0026quot;#\u0026quot; v-on:click.prevent\u0026gt;\u0026lt;/a\u0026gt;\n\u003c/code\u003e\u003c/pre\u003e\u003cul\u003e\n\u003cli\u003e\u003cstrong\u003e按鍵修飾符\u003c/strong\u003e\n\u003cul\u003e\n\u003cli\u003e\u003ca href=\"https://cn.vuejs.org/v2/guide/events.html#%E6%8C%89%E9%94%AE%E4%BF%AE%E9%A5%B0%E7%AC%A6\"\u003e官方說明：按鍵修飾符\u003c/a\u003e\u003c/li\u003e\n\u003cli\u003e範例：v-on:keyup.enter，submit會在key是enter時調用\u003c/li\u003e\n\u003c/ul\u003e\n\u003c/li\u003e\n\u003c/ul\u003e\n\u003cpre\u003e\u003ccode\u003e\u0026lt;input v-on:keyup.enter=\u0026quot;submit\u0026quot;\u0026gt;\n\u003c/code\u003e\u003c/pre\u003e\u003ch3 id=\"computed-運算功能\"\u003ecomputed 運算功能\u003c/h3\u003e\n\u003cp\u003ecomputed是app中的一個功能，它透過 \u003cstrong\u003edata 中的值的變更\u003c/strong\u003e，將結果回傳於變數中，並且可以運用在畫面上。\n在 computed 中所宣告的任何屬性都會是 function ，且它都會 return 一個值。\u003c/p\u003e\n\u003cp\u003e範例：\u003c/p\u003e\n\u003cpre\u003e\u003ccode\u003e\u0026lt;div id=\u0026quot;app\u0026quot;\u0026gt;\n    {{ reverseText }}\n\u0026lt;/div\u0026gt;\n\n\n\u0026lt;script\u0026gt;\n    var app = new Vue{\n        el: '#app',\n        data: {\n            text: '',\n            newText:''\n        },\n        computed: {\n            reverseText: function(){\n            return this.text\n            }\n        }\n    }\n\u0026lt;/script\u0026gt;\n\u003c/code\u003e\u003c/pre\u003e\u003ch4 id=\"methods-及-computed-差別\"\u003eMethods 及 Computed 差別\u003c/h4\u003e\n\u003cul\u003e\n\u003cli\u003e\n\u003cp\u003ecomputed\u003c/p\u003e\n\u003cul\u003e\n\u003cli\u003e在監控資料更動後，重新運算結果呈現於畫面上\u003c/li\u003e\n\u003c/ul\u003e\n\u003cul\u003e\n\u003cli\u003e一般來說不會修改資料，只會回傳用於畫面呈現的資料\u003c/li\u003e\n\u003c/ul\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003emethods\u003c/p\u003e\n\u003cul\u003e\n\u003cli\u003e就是互動的函式，需要觸發才會運作\u003c/li\u003e\n\u003cli\u003e會用來修改資料內容\u003c/li\u003e\n\u003c/ul\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003e效能\u003c/p\u003e\n\u003cul\u003e\n\u003cli\u003e資料量大時， computed 只要資料變動就會觸發，無形之中執行次數也會增加，自然會比較慢。\n因此在大量資料時，會建議透過 methods 減少不必要的運算喔\u003c/li\u003e\n\u003c/ul\u003e\n\u003c/li\u003e\n\u003c/ul\u003e\n\u003ch3 id=\"vue-表單與資料的綁定\"\u003eVue 表單與資料的綁定\u003c/h3\u003e\n\u003cul\u003e\n\u003cli\u003e選項\n\u003cdiv class=\"form-check\"\u003e\n  \u003cinput type=\"checkbox\" class=\"form-check-input\" id=\"check2\" v-model=\"checkboxArray\" value=\"雞\"\u003e\n  雞\n\u003c/div\u003e\n\u003cdiv class=\"form-check\"\u003e\n  \u003cinput type=\"checkbox\" class=\"form-check-input\" id=\"check3\" v-model=\"checkboxArray\" value=\"豬\"\u003e\n  豬\n\u003c/div\u003e\n\u003cdiv class=\"form-check\"\u003e\n  \u003cinput type=\"checkbox\" class=\"form-check-input\" id=\"check4\" v-model=\"checkboxArray\" value=\"牛\"\u003e\n  牛\n\u003c/div\u003e\n\u003cp\u003e晚餐火鍋裡有\u003cspan v-for=\"item in checkboxArray\"\u003e{{ item }}\u003c/span\u003e。\u003c/p\u003e\n\u003c/li\u003e\n\u003c/ul\u003e\n\u003cpre\u003e\u003ccode\u003e  \u0026lt;div class=\u0026quot;form-check\u0026quot;\u0026gt;\n    \u0026lt;input type=\u0026quot;checkbox\u0026quot; class=\u0026quot;form-check-input\u0026quot; id=\u0026quot;check2\u0026quot; v-model=\u0026quot;checkboxArray\u0026quot; value=\u0026quot;雞\u0026quot;\u0026gt;\n    \u0026lt;label class=\u0026quot;form-check-label\u0026quot; for=\u0026quot;check2\u0026quot;\u0026gt;雞\u0026lt;/label\u0026gt;\n  \u0026lt;/div\u0026gt;\n  \u0026lt;div class=\u0026quot;form-check\u0026quot;\u0026gt;\n    \u0026lt;input type=\u0026quot;checkbox\u0026quot; class=\u0026quot;form-check-input\u0026quot; id=\u0026quot;check3\u0026quot; v-model=\u0026quot;checkboxArray\u0026quot; value=\u0026quot;豬\u0026quot;\u0026gt;\n    \u0026lt;label class=\u0026quot;form-check-label\u0026quot; for=\u0026quot;check3\u0026quot;\u0026gt;豬\u0026lt;/label\u0026gt;\n  \u0026lt;/div\u0026gt;\n  \u0026lt;div class=\u0026quot;form-check\u0026quot;\u0026gt;\n    \u0026lt;input type=\u0026quot;checkbox\u0026quot; class=\u0026quot;form-check-input\u0026quot; id=\u0026quot;check4\u0026quot; v-model=\u0026quot;checkboxArray\u0026quot; value=\u0026quot;牛\u0026quot;\u0026gt;\n    \u0026lt;label class=\u0026quot;form-check-label\u0026quot; for=\u0026quot;check4\u0026quot;\u0026gt;牛\u0026lt;/label\u0026gt;\n  \u0026lt;/div\u0026gt;\n  \u0026lt;p\u0026gt;晚餐火鍋裡有\u0026lt;span v-for=\u0026quot;item in checkboxArray\u0026quot;\u0026gt;{{item}}\u0026lt;/span\u0026gt;。\u0026lt;/p\u0026gt;\n\u003c/code\u003e\u003c/pre\u003e"
+}
+</script>
+
+<link rel="preload" as="script" href="/bundle.js?v=1617116634">
+
+
+</head>
+<body>
+
+  <header id="nav" class="header">
+  <div class=" ax-l-i max-w-6xl">
+    <div>
+      <div class="ax-logo">
+        <a class="block" href="/" title="RAELLEN "><span class="font-semibold text-raven-900 text-40">RAELLEN </span></a>
+      </div>
+      <div class="flex">
+        <a class="p-2 block text-base leading-none text-blue-600 hover:text-gray-800 focus:text-gray-800 focus:outline-none" href="/archive/">
+          Archive
+        </a>
+        <a class="p-2 block text-base leading-none text-blue-600 hover:text-gray-800 focus:text-gray-800 focus:outline-none" href="/tags">
+          Tags
+        </a>
+        <a class="p-2 block text-base leading-none text-blue-600 hover:text-gray-800 focus:text-gray-800 focus:outline-none" href="/about/">
+          About
+        </a>
+      </div>
+    </div>
+    <div class="ax-user">
+      <a class="p-2 w-8 h-8 block text-raven-500 hover:text-gray-800 focus:text-gray-800 focus:outline-none" target="_blank" rel="noopener nofollow" href="https://www.google.com/search?q=site:https://raellen.github.io" title="Search">
+        <svg class="fill-current" viewBox="0 0 32 32" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M2.67 12.804c0-5.6 4.544-10.134 10.133-10.134s10.134 4.544 10.134 10.134-4.544 10.133-10.134 10.133S2.67 18.393 2.67 12.804zm28.943 16.923l-8.868-8.868c4.287-5.3 3.68-13.012-1.378-17.57S8.564-1.066 3.75 3.75s-5.017 12.558-.46 17.618 12.28 5.665 17.57 1.378l8.868 8.868a1.33 1.33 0 0 0 2.231-.597c.123-.46-.008-.952-.345-1.29h0z"/></svg>
+
+      </a>
+     
+      
+    </div>
+  </div>
+
+  
+  <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
+
+</header>
+  <main>
+<div class="default-single">
+  <div class="ax-title ax-l-o">
+    <div class="ax-l-i max-w-680">
+      <h2 class="section-title font-content-sans font-semibold uppercase tracking-wide text-2xl text-raven-800">Vue 基本介紹</h2>
+      <p class="post-subtitle font-content-sans font-light text-xl text-raven-500 mt-3">簡單介紹何謂 Vue.js ？ 淺談類MVVM的結構及雙向綁定的特性。</p>
+
+      <div class="ax-meta flex items-center mt-5">
+        <div class="flex-grow min-w-0">
+          <div class="flex items-center">
+  <div class="flex-shrink-0">
+    <img
+    class="w-12 h-12 sm:w-14 sm:h-14 object-cover p-3px rounded-full border border-blue-300"
+    src="/image/author/Raellen.svg"
+    alt="Raellen">
+  </div>
+  <div class="flex-shrink-0 ml-2 leading-tight font-content-sans">
+    <a class="block text-sm text-raven-800 hover:text-raven-900 hover:underline focus:underline" target="_blank" rel="noopener nofollow" title="Raellen" href="https://example.com/">Raellen</a>
+    <time class="text-sm text-raven-500" datetime="2021-03-24T03:00:00Z">Mar 24, 2021 11:00AM</time>
+  </div>
+</div>
+
+        </div>
+        <div>
+          
+        </div>
+      </div>
+    </div>
+
+      
+  </div>
+  <div class="ax-feature ax-l-o">
+    <div class="ax-l-i max-w-5xl">
+
+<figure>
+<img
+class="mb-2 mx-auto leading-none shadow-xl"
+src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/95/Vue.js_Logo_2.svg/323px-Vue.js_Logo_2.svg.png"
+alt="Vue 基本介紹">
+</figure>
+
+
+    </div>
+  </div><div class="ax-content ax-l-o">
+    <div class="ax-l-i max-w-680">
+      <article class="cdata">
+<h2 id="vuejs-介紹">Vue.js 介紹</h2>
+<p>Vue.js 具備直觀的語法讓開發者在學習上都可以輕鬆上手，搭配它簡單的雙向綁定，讓我們可以專注於資料狀態的管理。
+搭配它多樣化的延伸工具，可以開發 SPA ( Single Page Application )。</p>
+<ul>
+<li><a href="###MVVM-%E7%9A%84%E6%A6%82%E5%BF%B5">MVVM 結構</a>
+Vue不是一個完全MVVM的架構，只是受到MVVM的啟發。
+<img src="https://i.imgur.com/1h9vTaA.png" alt="">
+我們在畫面上看到的外觀就是View，而我們所操控的就是Model。</li>
+</ul>
+<p>
+<ul>
+<li>資料的動態
+ViewModel是與畫面做綁定的，因此寫程式碼時只需要寫Model，資料變動的同時，ViewModel就會去控制視圖的變化。
+因此調整視圖或是資料時，View及Model兩邊的資訊會同時變更。</li>
+</ul>
+<p>
+<ul>
+<li>可以放入多個Vue app(應用程式)
+宣告多個 Vue 應用程式，在Vue的開發者工具中就會看見多個<code>&lt;root&gt;</code>
+但通常只會建立一個應用程式。</li>
+</ul>
+<p>
+<ul>
+<li><strong>不適用</strong>巢狀結構
+應用程式中不能包另外一個應用程式。</li>
+</ul>
+<p>
+<ul>
+<li>開發環境
+Vue 是透過資料來驅動畫面的，而資料是不斷在變動的，因此除錯時需要了解目前資料的狀態。
+基於以上狀況， Vue 較難以使用<code>console.log</code>的方式來進行除錯， 利用瀏覽器中 Vue 插件的環境來除錯，是比較理想的方式。</li>
+</ul>
+<h3 id="透過cdn-建置新專案">透過CDN 建置新專案</h3>
+<p>對於製作原型或學習，你可以這樣使用最新版本：</p>
+<pre><code>&lt;script src=&quot;https://cdn.jsdelivr.net/npm/vue/dist/vue.js&quot;&gt;&lt;/script&gt;
+</code></pre><p>對於生產環境，我們推薦鏈接到一個明確的版本號和構建文件，以避免新版本造成的不可預期的破壞：</p>
+<pre><code>&lt;script src=&quot;https://cdn.jsdelivr.net/npm/vue@2.6.12&quot;&gt;&lt;/script&gt;
+</code></pre><h3 id="透過vue-cli-建置新專案">透過vue-cli 建置新專案</h3>
+<pre><code>$ npm install -g vue-cli
+$ vue init webpack-simple [project name]
+
+$ cd [project name]
+$ npm install
+$ npm run dev
+</code></pre><h3 id="建立應用程式">建立應用程式</h3>
+<p>Vue在建立時會宣告一個新的 Vue 應用程式，裡面擺放物件；而生成之後必須綁定一個 HTML 的元素。
+而Vue一次只能綁定一個元素，因此綁定ID是比較好的。</p>
+<p>in body</p>
+<pre><code>&lt;div id=&quot;vueApp&quot;&gt;
+  {{ text }}
+&lt;/div&gt;
+</code></pre><p>in script</p>
+<pre><code>var app = new Vue({
+  el: '#vueApp',
+  data: {
+    text:'這裡是一串文字',
+    array:[
+    {item1},
+    {item2}
+    ]
+  }
+})
+</code></pre><h3 id="mvvm-的概念">MVVM 的概念</h3>
+<ul>
+<li><a href="https://ithelp.ithome.com.tw/articles/10213157">MVVM與MVC的差別</a></li>
+</ul>
+<h4 id="mvc-概念">MVC 概念</h4>
+<p><img src="https://i.imgur.com/sNOvjgw.jpg" alt="">
+透過Controller轉接去要求Model取資料</p>
+<h4 id="mvvm-概念">MVVM 概念</h4>
+<p><img src="https://i.imgur.com/6j29skI.png" alt="">
+ViewModel是與畫面做綁定的，因此寫程式碼時只需要寫Model，資料變動的同時，ViewModel就會去控制視圖的變化。</p>
+<p>因此調整視圖或是資料時，View及Model兩邊的資訊會同時變更。</p>
+<h4 id="與傳統jquery的差別">與傳統jQuery的差別</h4>
+<p>傳統的jQuery是直接操作DOM元素，而Vue.js在操作DOM元素時是透過資料的狀態去操作畫面。</p>
+<h3 id="聲明式渲染">聲明式渲染</h3>
+<p>Vue.js 的核心是一個允許採用簡潔的模板語法來聲明式地將數據渲染進DOM 的系統：
+在script中綁定好元素，再回到元素中用<code>{{}}</code>去呼叫</p>
+<ul>
+<li>在 html 中</li>
+</ul>
+<pre><code>&lt;div id=&quot;app&quot;&gt;
+  {{ message }}
+&lt;/div&gt;
+
+&lt;script&gt;
+var app = new Vue({
+  el: '#app',
+  data: {
+    message: 'Hello Vue!'
+  }
+})
+&lt;/script&gt;
+
+</code></pre><h3 id="vue指令">Vue指令</h3>
+<p><a href="https://www.cnblogs.com/jianjie/p/12491899.html">vue指令</a>
+<a href="https://hsuchihting.github.io/vue-js/20200419/2954354756/">Vue筆記</a>
+除了使用<code>{{}}</code>的方式，也可利用指令的方式來綁定資料。</p>
+<ul>
+<li><a href="###v-model-%E9%9B%99%E5%90%91%E7%B6%81%E5%AE%9A">v-model</a>：可以實現資料的雙向綁定</li>
+<li>v-text：相當於js的innerText</li>
+<li>v-html：相當於js的innerHTML</li>
+<li><a href="###v-bind-%E5%8B%95%E6%85%8B%E5%B1%AC%E6%80%A7%E6%8C%87%E4%BB%A4">v-bind</a>：（單向）動態綁定一個或多個attribute屬性指令</li>
+<li><a href="####v-for%E5%AF%AB%E6%B3%95">v-for、v-if</a>：做類似forEach的迴圈</li>
+<li><a href="###v-on-:-%E8%99%95%E7%90%86%E4%BA%92%E5%8B%95%E8%A1%8C%E7%82%BA">v-on</a>：處理互動行為</li>
+</ul>
+<h4 id="常見簡寫">常見簡寫</h4>
+<ul>
+<li><code>v-on:</code> == <code>@</code></li>
+<li><code>v-bind</code> == <code> </code></li>
+</ul>
+<!-- 範例： -->
+<h3 id="v-model-雙向綁定">v-model 雙向綁定</h3>
+<p>可以透過本指令，綁定物件的資料。
+說明 : 把 <code>input的value值</code> 和 <code>data里的msg</code> 绑定到了一起,一方改变,另外一方也会 跟改变</p>
+<ul>
+<li>使用方式 : v-model 一般使用在表單元素上</li>
+<li>限制使用：
+<ul>
+<li><code>&lt;input&gt;</code></li>
+<li><code>&lt;select&gt;</code></li>
+<li><code>&lt;textarea&gt;</code></li>
+<li>components</li>
+</ul>
+</li>
+</ul>
+<p>
+<ul>
+<li>重點 : v-model 使用在不同的表单元素上, 绑定的值不一样
+v-model 绑定到文本输入框里面 =&gt; 绑定是字符串类型的内容
+v-model 绑定到多选框里面  ==&gt; 绑定是布尔类型true/false</li>
+</ul>
+<p>in body</p>
+<pre><code>&lt;div id=&quot;vueApp&quot;&gt;
+    &lt;input type=&quot;text&quot; v-model=&quot;message&quot;&gt;
+&lt;/div&gt;
+</code></pre><p>in script</p>
+<pre><code>var app = new vue({
+    el:'#vueApp',
+    data:{
+        imgSrc=&quot;圖片網址&quot;,
+        className=&quot;img-fluid&quot;
+    }
+})
+</code></pre><h3 id="v-html">v-html</h3>
+<ul>
+<li>
+<p>預期：<code>string</code></p>
+</li>
+<li>
+<p>詳細：
+更新元素的innerHTML。注意：內容按普通HTML插入-不會作為Vue模板進行編譯。如果試圖使用v-html組合模板，可以重新考慮是否通過使用組件來替代。</p>
+</li>
+</ul>
+<p><a href="https://cn.vuejs.org/v2/api/#v-html">Html注意事項</a>
+在網站上動態渲染任意HTML是非常危險的，因為容易導致XSS攻擊。只在可信內容上使用v-html，永不用在用戶提交的內容上。</p>
+<h3 id="v-bind-動態屬性指令">v-bind 動態屬性指令</h3>
+<p><strong>單向</strong>動態綁定數據（從M-&gt;V）
+透過增加屬性的方式，可以連結圖片或是網址、或是增加class</p>
+<ul>
+<li><a href="https://cn.vuejs.org/v2/api/#v-bind">v-bind官方說明</a></li>
+<li>簡寫：<code>v-bind:</code> 可簡寫為 <code>:</code></li>
+</ul>
+<ol>
+<li>{{}} 不能用在属性值上, 一般使用在 标签内容部分， <XX>位置</XX></li>
+<li>v-bind 動態綁定一個數據 (單向 M -&gt; V)</li>
+<li>v-bind 一般使用在屬性上，任意標籤皆可使用</li>
+</ol>
+<h3 id="v-bindclass-動態切換">v-bind:class 動態切換</h3>
+<p><a href="https://v1-cn.vuejs.org/guide/class-and-style.html">官方說明：Class與Style綁定</a></p>
+<ul>
+<li>對象語法：我們可以傳給 v-bind:class 一個對象，以動態地切換 class 。注意 v-bind:class 指令可以與普通的 class 特性共存</li>
+</ul>
+<h3 id="v-if--v-for-動態產生多筆資料於畫面上">v-if &amp; v-for 動態產生多筆資料於畫面上</h3>
+<p>data中可以放入類似JSON的資料結構，也就是可以放置陣列進去。
+添加v-for的屬性做類似forEach的迴圈，並且在標籤中渲染出值。</p>
+<ul>
+<li>顯示陣列中數值</li>
+</ul>
+<pre><code> &lt;pre&gt;{{陣列名稱}}&lt;/pre&gt;
+</code></pre><h4 id="v-for寫法">v-for寫法</h4>
+<p>作用 ：
+巡訪陣列，創造出對應的標籤。</p>
+<p>寫法：
+先v-for指定某個陣列，再在標籤中以<code>{{}}</code>呼叫該陣列的元素</p>
+<ul>
+<li>基本寫法</li>
+</ul>
+<pre><code>          陣列元素          
+&lt;li v-for='item in list'&gt;{{ item.name }} {{ item.id }}&lt;/li&gt; 
+</code></pre><ul>
+<li>取出陣列索引值</li>
+</ul>
+<pre><code>            陣列元素,元素對應的索引
+&lt;li v-for='(item,index) in list' &gt;{{ item }} {{ index }}&lt;/li&gt;
+</code></pre><ul>
+<li>巡訪特定對象</li>
+</ul>
+<pre><code>&lt;li v-for='(value,key) in obj'&gt;{{ value }} {{ key }}&lt;/li&gt;
+</code></pre><ul>
+<li>巡訪次数</li>
+</ul>
+<pre><code>&lt;li v-for='i in 100'&gt;{{ i }}&lt;/li&gt;
+&lt;li v-for='i in 100'&gt;{{ i - 1 }}&lt;/li&gt;
+</code></pre><p>範例</p>
+<ul>
+<li>在html中</li>
+</ul>
+<pre><code>&lt;ui&gt;
+  &lt;li v-for=&quot;item in list&quot;&gt;
+    {{item.name}}
+  &lt;/li&gt;
+&lt;/ui&gt; 
+</code></pre><ul>
+<li>在script中</li>
+</ul>
+<pre><code>var app = new Vue({
+  el: '#app',
+  data: {
+    list: [
+      {
+        name: '小明',
+        age: 16
+      },
+      {
+        name: '媽媽',
+        age: 38,
+      },
+      {
+        name: '漂亮阿姨',
+        age: 24
+      }
+    ]
+  }
+})
+</code></pre><h4 id="v-if">v-if</h4>
+<p>在v-for的迴圈中加入判斷式</p>
+<p>寫法：
+直接在標籤裡面增加v-for的屬性來添加判斷式</p>
+<p>in body</p>
+<pre><code>&lt;ul&gt;
+    &lt;li v-for=&quot;item in list&quot; v-if=&quot;item.age &lt; 25&quot;&gt;
+      {{ item.name }} 年齡是 {{ item.age}}
+    &lt;/li&gt;
+&lt;/ul&gt;
+</code></pre><h3 id="v-on--處理互動行為">v-on : 處理互動行為</h3>
+<ul>
+<li><a href="https://cn.vuejs.org/v2/api/#v-on">官方說明：v-on</a></li>
+<li><code>v-on:</code> 可簡寫為 <code>@</code></li>
+</ul>
+<p>綁定事件，觸發方法會寫在html的元件上，而不是Vue.js的原始碼中。</p>
+<p>寫法：
+在input中用v-model綁定text，並在data底下再新增一個 method 物件，然後使用 <code>v-on:觸發方式 = &quot;methods&quot;</code>來綁定物件。</p>
+<p>在底下利用<code>{{}}</code>呼叫新的newText值</p>
+<pre><code>&lt;input v-model=&quot;text&quot;&gt;
+&lt;button v-on:click=&quot;reverseText&quot;&gt;我是按鈕&lt;/button&gt;
+{{newText}}
+</code></pre><h3 id="v-on後加上判斷式">v-on後加上判斷式</h3>
+<p>在v-on後可以加入判斷式，判斷式直接套用物件，就可以不用寫完整的method。
+<code>&lt;button ＠click=&quot;isTransform = !isTransform&quot;&gt;&lt;/button&gt;</code></p>
+<h4 id="關於this在-vue-的用法">關於<code>this</code>在 Vue 的用法</h4>
+<p>在 JavaScript 中 <code>this</code> 在全域環境都會指向 window
+如果在 Vue 中 <code>this</code>則會指向 Vue 的 app</p>
+<p>利用<code>this</code>指定data底下的物件</p>
+<ul>
+<li>範例：</li>
+</ul>
+<pre><code>  var app = new Vue({
+    el: '#app',
+    data: {
+      text: '',
+      newText: ''
+    },
+    methods:{
+      reverseText: function(){
+      console.log('點我', this.text);
+      this.text = this.newText;
+      }
+    }
+  });
+</code></pre><h4 id="修飾符">修飾符</h4>
+<p>v-on 搭配修飾符，能夠直接調用事件，而不用通過method。</p>
+<ul>
+<li><strong>事件修飾符</strong>
+<ul>
+<li><a href="https://cn.vuejs.org/v2/guide/events.html#%E4%BA%8B%E4%BB%B6%E4%BF%AE%E9%A5%B0%E7%AC%A6">官方說明：事件修飾符</a></li>
+<li>範例：v-on:click.prevent，利用修飾符取代<code>event.preventDefault();</code></li>
+</ul>
+</li>
+</ul>
+<pre><code>&lt;a href=&quot;#&quot; v-on:click.prevent&gt;&lt;/a&gt;
+</code></pre><ul>
+<li><strong>按鍵修飾符</strong>
+<ul>
+<li><a href="https://cn.vuejs.org/v2/guide/events.html#%E6%8C%89%E9%94%AE%E4%BF%AE%E9%A5%B0%E7%AC%A6">官方說明：按鍵修飾符</a></li>
+<li>範例：v-on:keyup.enter，submit會在key是enter時調用</li>
+</ul>
+</li>
+</ul>
+<pre><code>&lt;input v-on:keyup.enter=&quot;submit&quot;&gt;
+</code></pre><h3 id="computed-運算功能">computed 運算功能</h3>
+<p>computed是app中的一個功能，它透過 <strong>data 中的值的變更</strong>，將結果回傳於變數中，並且可以運用在畫面上。
+在 computed 中所宣告的任何屬性都會是 function ，且它都會 return 一個值。</p>
+<p>範例：</p>
+<pre><code>&lt;div id=&quot;app&quot;&gt;
+    {{ reverseText }}
+&lt;/div&gt;
+
+
+&lt;script&gt;
+    var app = new Vue{
+        el: '#app',
+        data: {
+            text: '',
+            newText:''
+        },
+        computed: {
+            reverseText: function(){
+            return this.text
+            }
+        }
+    }
+&lt;/script&gt;
+</code></pre><h4 id="methods-及-computed-差別">Methods 及 Computed 差別</h4>
+<ul>
+<li>
+<p>computed</p>
+<ul>
+<li>在監控資料更動後，重新運算結果呈現於畫面上</li>
+</ul>
+<ul>
+<li>一般來說不會修改資料，只會回傳用於畫面呈現的資料</li>
+</ul>
+</li>
+<li>
+<p>methods</p>
+<ul>
+<li>就是互動的函式，需要觸發才會運作</li>
+<li>會用來修改資料內容</li>
+</ul>
+</li>
+<li>
+<p>效能</p>
+<ul>
+<li>資料量大時， computed 只要資料變動就會觸發，無形之中執行次數也會增加，自然會比較慢。
+因此在大量資料時，會建議透過 methods 減少不必要的運算喔</li>
+</ul>
+</li>
+</ul>
+<h3 id="vue-表單與資料的綁定">Vue 表單與資料的綁定</h3>
+<ul>
+<li>選項
+<div class="form-check">
+  <input type="checkbox" class="form-check-input" id="check2" v-model="checkboxArray" value="雞">
+  雞
+</div>
+<div class="form-check">
+  <input type="checkbox" class="form-check-input" id="check3" v-model="checkboxArray" value="豬">
+  豬
+</div>
+<div class="form-check">
+  <input type="checkbox" class="form-check-input" id="check4" v-model="checkboxArray" value="牛">
+  牛
+</div>
+<p>晚餐火鍋裡有<span v-for="item in checkboxArray">{{ item }}</span>。</p>
+</li>
+</ul>
+<pre><code>  &lt;div class=&quot;form-check&quot;&gt;
+    &lt;input type=&quot;checkbox&quot; class=&quot;form-check-input&quot; id=&quot;check2&quot; v-model=&quot;checkboxArray&quot; value=&quot;雞&quot;&gt;
+    &lt;label class=&quot;form-check-label&quot; for=&quot;check2&quot;&gt;雞&lt;/label&gt;
+  &lt;/div&gt;
+  &lt;div class=&quot;form-check&quot;&gt;
+    &lt;input type=&quot;checkbox&quot; class=&quot;form-check-input&quot; id=&quot;check3&quot; v-model=&quot;checkboxArray&quot; value=&quot;豬&quot;&gt;
+    &lt;label class=&quot;form-check-label&quot; for=&quot;check3&quot;&gt;豬&lt;/label&gt;
+  &lt;/div&gt;
+  &lt;div class=&quot;form-check&quot;&gt;
+    &lt;input type=&quot;checkbox&quot; class=&quot;form-check-input&quot; id=&quot;check4&quot; v-model=&quot;checkboxArray&quot; value=&quot;牛&quot;&gt;
+    &lt;label class=&quot;form-check-label&quot; for=&quot;check4&quot;&gt;牛&lt;/label&gt;
+  &lt;/div&gt;
+  &lt;p&gt;晚餐火鍋裡有&lt;span v-for=&quot;item in checkboxArray&quot;&gt;{{item}}&lt;/span&gt;。&lt;/p&gt;
+</code></pre>
+      </article>
+      
+
+      
+
+      <div class="mt-10">
+        <script src="https://utteranc.es/client.js"
+          repo="Raellen/commentsforblog"
+          issue-term="pathname"
+          theme="github-light"
+          crossorigin="anonymous"
+          async>
+        </script>
+      </div>
+    </div>
+  </div>
+</div>
+
+  </main>
+  <footer class="footer">
+  <div class="ax-l-i max-w-6xl">
+    <nav class="flex items-center justify-center">
+    </nav>
+
+    <div class="footer-copyright text-sm text-center text-gray-400 mt-4">
+      &#169; 2021 RAELLEN 
+    </div>
+    
+  </div>
+</footer>
+
+<script src="/bundle.js?v=1617116634"></script>
+
+
+</body>
+</html>

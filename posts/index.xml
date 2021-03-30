@@ -6,24 +6,24 @@
     <description>Recent content in Posts on RAELLEN </description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Wed, 24 Mar 2021 03:00:00 +0000</lastBuildDate><atom:link href="https://raellen.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 30 Mar 2021 14:00:00 +0000</lastBuildDate><atom:link href="https://raellen.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Vue:Props及Emit</title>
-      <link>https://raellen.github.io/vueprops%E5%8F%8Aemit/</link>
-      <pubDate>Wed, 24 Mar 2021 03:00:00 +0000</pubDate>
+      <title>Notion:Database基本用法</title>
+      <link>https://raellen.github.io/notiondatabase/</link>
+      <pubDate>Tue, 30 Mar 2021 14:00:00 +0000</pubDate>
       
-      <guid>https://raellen.github.io/vueprops%E5%8F%8Aemit/</guid>
-      <description>And go...
-&amp;lt;!doctype html&amp;gt; &amp;lt;html lang=&amp;#34;en&amp;#34;&amp;gt; &amp;lt;head&amp;gt; &amp;lt;meta charset=&amp;#34;utf-8&amp;#34;&amp;gt; &amp;lt;title&amp;gt;Title&amp;lt;/title&amp;gt; &amp;lt;/head&amp;gt; &amp;lt;body&amp;gt; &amp;lt;p&amp;gt;Lorem...&amp;lt;/p&amp;gt; &amp;lt;/body&amp;gt; &amp;lt;/html&amp;gt; </description>
+      <guid>https://raellen.github.io/notiondatabase/</guid>
+      <description>  Relation (關聯)  在表單後建立ADVANED / ↗︎Relation 選擇Select a database，並且關聯到B表單 點擊框框添加需要關聯的資料       Roll up (查找)  建立了Relation後才能使用Rollup 在B表單中建立 ADVANED / 🔍 Rollup  在Relation中 選取A表單         Create Linked Database (連結資料庫)  打/ 輸入Create Linked Database 選擇要連結的資料庫，完成    </description>
     </item>
     
     <item>
-      <title>Hello World</title>
-      <link>https://raellen.github.io/hello-world/</link>
-      <pubDate>Fri, 19 Mar 2021 03:00:00 +0000</pubDate>
+      <title>Vue 基本介紹</title>
+      <link>https://raellen.github.io/vue_props%E5%8F%8Aemit/</link>
+      <pubDate>Wed, 24 Mar 2021 03:00:00 +0000</pubDate>
       
-      <guid>https://raellen.github.io/hello-world/</guid>
-      <description>And go...</description>
+      <guid>https://raellen.github.io/vue_props%E5%8F%8Aemit/</guid>
+      <description>Vue.js 介紹 Vue.js 具備直觀的語法讓開發者在學習上都可以輕鬆上手，搭配它簡單的雙向綁定，讓我們可以專注於資料狀態的管理。 搭配它多樣化的延伸工具，可以開發 SPA ( Single Page Application )。
+ MVVM 結構 Vue不是一個完全MVVM的架構，只是受到MVVM的啟發。 我們在畫面上看到的外觀就是View，而我們所操控的就是Model。    資料的動態 ViewModel是與畫面做綁定的，因此寫程式碼時只需要寫Model，資料變動的同時，ViewModel就會去控制視圖的變化。 因此調整視圖或是資料時，View及Model兩邊的資訊會同時變更。    可以放入多個Vue app(應用程式) 宣告多個 Vue 應用程式，在Vue的開發者工具中就會看見多個&amp;lt;root&amp;gt; 但通常只會建立一個應用程式。    不適用巢狀結構 應用程式中不能包另外一個應用程式。    開發環境 Vue 是透過資料來驅動畫面的，而資料是不斷在變動的，因此除錯時需要了解目前資料的狀態。 基於以上狀況， Vue 較難以使用console.</description>
     </item>
     
   </channel>
