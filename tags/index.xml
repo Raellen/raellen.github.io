@@ -8,11 +8,38 @@
     <language>en</language>
     <lastBuildDate>Tue, 30 Mar 2021 14:00:00 +0000</lastBuildDate><atom:link href="https://raellen.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
     <item>
+      <title>Notes</title>
+      <link>https://raellen.github.io/tags/notes/</link>
+      <pubDate>Tue, 30 Mar 2021 14:00:00 +0000</pubDate>
+      
+      <guid>https://raellen.github.io/tags/notes/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>Notion</title>
       <link>https://raellen.github.io/tags/notion/</link>
       <pubDate>Tue, 30 Mar 2021 14:00:00 +0000</pubDate>
       
       <guid>https://raellen.github.io/tags/notion/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>JavaSript</title>
+      <link>https://raellen.github.io/tags/javasript/</link>
+      <pubDate>Wed, 24 Mar 2021 03:00:00 +0000</pubDate>
+      
+      <guid>https://raellen.github.io/tags/javasript/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Vue</title>
+      <link>https://raellen.github.io/tags/vue/</link>
+      <pubDate>Wed, 24 Mar 2021 03:00:00 +0000</pubDate>
+      
+      <guid>https://raellen.github.io/tags/vue/</guid>
       <description></description>
     </item>
     

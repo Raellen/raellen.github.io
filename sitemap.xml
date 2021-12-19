@@ -4,11 +4,15 @@
     <loc>https://raellen.github.io/home/welcome/</loc>
   </url>
   <url>
-    <loc>https://raellen.github.io/tags/notion/</loc>
+    <loc>https://raellen.github.io/notiondatabase/</loc>
     <lastmod>2021-03-30T14:00:00Z</lastmod>
   </url>
   <url>
-    <loc>https://raellen.github.io/notiondatabase/</loc>
+    <loc>https://raellen.github.io/tags/notes/</loc>
+    <lastmod>2021-03-30T14:00:00Z</lastmod>
+  </url>
+  <url>
+    <loc>https://raellen.github.io/tags/notion/</loc>
     <lastmod>2021-03-30T14:00:00Z</lastmod>
   </url>
   <url>
@@ -24,11 +28,23 @@
     <lastmod>2021-03-30T14:00:00Z</lastmod>
   </url>
   <url>
-    <loc>https://raellen.github.io/vue_props%E5%8F%8Aemit/</loc>
+    <loc>https://raellen.github.io/vue%E5%9F%BA%E6%9C%AC%E4%BB%8B%E7%B4%B9/</loc>
+    <lastmod>2021-03-24T03:00:00Z</lastmod>
+  </url>
+  <url>
+    <loc>https://raellen.github.io/tags/javasript/</loc>
+    <lastmod>2021-03-24T03:00:00Z</lastmod>
+  </url>
+  <url>
+    <loc>https://raellen.github.io/tags/vue/</loc>
     <lastmod>2021-03-24T03:00:00Z</lastmod>
   </url>
   <url>
     <loc>https://raellen.github.io/about/</loc>
+    <lastmod>2020-01-01T00:00:00Z</lastmod>
+  </url>
+  <url>
+    <loc>https://raellen.github.io/gallery/</loc>
     <lastmod>2020-01-01T00:00:00Z</lastmod>
   </url>
   <url>
