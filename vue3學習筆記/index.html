@@ -1,0 +1,808 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no">
+<meta name="hugo-theme" content="Axiom 0.8.0">
+
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/image/brand/favicon.png">
+  <link rel="icon" type="image/x-icon" href="/favicon.ico">
+  <link rel="apple-touch-icon" href="/image/brand/icon-1-1.png">
+  <link rel="canonical" href="https://raellen.github.io/vue3%E5%AD%B8%E7%BF%92%E7%AD%86%E8%A8%98/">
+<link rel="preload" as="style" href="/bundle.css?v=1669303559" media="all">
+<link rel="stylesheet" href="/bundle.css?v=1669303559" media="all">
+<style>.cdata pre{background-color:#1f2937;color:#e5e7eb}.cdata :not(pre)>code{background-color:#f3f4f6;color:#7c3aed}.chroma .err{background-color:#991b1b;color:#fecaca}.chroma .hl{background-color:#374151}.chroma .ln{color:#9ca3af}.chroma .k,.chroma .kc,.chroma .kd,.chroma .kn,.chroma .kp,.chroma .kr{color:#60a5fa}.chroma .kt{color:#a78bfa}.chroma .na,.chroma .nb{color:#fbbf24}.chroma .nc{color:#f87171}.chroma .no{color:#34d399}.chroma .nd{color:#f87171}.chroma .ne{color:#f87171}.chroma .nf{color:#fbbf24}.chroma .nt{color:#f87171}.chroma .l{color:#a78bfa}.chroma .dl,.chroma .ld,.chroma .s,.chroma .s2,.chroma .sa,.chroma .sb,.chroma .sc,.chroma .sd{color:#34d399}.chroma .se{color:#9ca3af}.chroma .s1,.chroma .sh,.chroma .si,.chroma .sr,.chroma .ss,.chroma .sx{color:#34d399}.chroma .il,.chroma .m,.chroma .mb,.chroma .mf,.chroma .mh,.chroma .mi,.chroma .mo{color:#a78bfa}.chroma .o,.chroma .ow{color:#93c5fd}.chroma .c,.chroma .c1,.chroma .ch,.chroma .cm,.chroma .cp,.chroma .cpf,.chroma .cs,.chroma .p{color:#9ca3af}.chroma .ge{font-style:italic}.chroma .gs{font-weight:700}
+</style>
+
+<link rel="preload" as="image" href="https://upload.wikimedia.org/wikipedia/commons/thumb/9/95/Vue.js_Logo_2.svg/323px-Vue.js_Logo_2.svg.png">
+
+<title>Vue 3 改版後與 Vue 2 的差異 : RAELLEN </title>
+
+<meta property="og:title" content="Vue 3 改版後與 Vue 2 的差異">
+<meta property="og:site_name" content="RAELLEN ">
+<meta property="og:url" content="https://raellen.github.io/vue3%E5%AD%B8%E7%BF%92%E7%AD%86%E8%A8%98/">
+<link rel="image_src" href="https://upload.wikimedia.org/wikipedia/commons/thumb/9/95/Vue.js_Logo_2.svg/323px-Vue.js_Logo_2.svg.png">
+<meta property="og:image" content="https://upload.wikimedia.org/wikipedia/commons/thumb/9/95/Vue.js_Logo_2.svg/323px-Vue.js_Logo_2.svg.png">
+<meta property="og:image:width" content="2048">
+<meta property="og:image:height" content="1024">
+<meta property="og:type" content="article">
+<meta property="og:locale" content="en">
+<meta property="og:description" content="學習資源  影片：  Vue 3 Composition API Introduction Vue 3 For Beginners - Full Tutorial Course   參考資料：  重新認識 Vue.js | Kuro Hsu 升級 Vue 3 前，你必須要知道的改動 Vue3 Hook 到底是啥黑魔法？     升級後的重大變革 新增功能 1. Composition API  相關邏輯可以集中 減少 this 指向的問題 Vue3 自定義Hook  使用 Composition API 寫法取代舊版 mixins hook是一個函式 將程式碼拆解，能夠讓各個頁面引用  可以當作公用的函式      2.">
+<meta name="description" content="學習資源  影片：  Vue 3 Composition API Introduction Vue 3 For Beginners - Full Tutorial Course   參考資料：  重新認識 Vue.js | Kuro Hsu 升級 Vue 3 前，你必須要知道的改動 Vue3 Hook 到底是啥黑魔法？     升級後的重大變革 新增功能 1. Composition API  相關邏輯可以集中 減少 this 指向的問題 Vue3 自定義Hook  使用 Composition API 寫法取代舊版 mixins hook是一個函式 將程式碼拆解，能夠讓各個頁面引用  可以當作公用的函式      2.">
+<meta property="og:updated_time" content="2022-11-24T15:00:00Z">
+<meta property="fb:app_id" content="">
+<meta name="author" content="Raellen">
+<meta property="article:author" content="https://example.com/">
+<meta property="article:published_time" content="2022-11-24T15:00:00Z">
+<meta property="article:modified_time" content="2022-11-24T15:00:00Z">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Vue 3 改版後與 Vue 2 的差異",
+  "alternativeHeadline": "紀錄 Vue 3 與 Vue 2 的差異.",
+  "url": "https://raellen.github.io/vue3%E5%AD%B8%E7%BF%92%E7%AD%86%E8%A8%98/",
+  "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/95/Vue.js_Logo_2.svg/323px-Vue.js_Logo_2.svg.png",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://raellen.github.io/vue3%E5%AD%B8%E7%BF%92%E7%AD%86%E8%A8%98/"
+  },
+  "description": "學習資源  影片：  Vue 3 Composition API Introduction Vue 3 For Beginners - Full Tutorial Course   參考資料：  重新認識 Vue.js | Kuro Hsu 升級 Vue 3 前，你必須要知道的改動 Vue3 Hook 到底是啥黑魔法？     升級後的重大變革 新增功能 1. Composition API  相關邏輯可以集中 減少 this 指向的問題 Vue3 自定義Hook  使用 Composition API 寫法取代舊版 mixins hook是一個函式 將程式碼拆解，能夠讓各個頁面引用  可以當作公用的函式      2.",
+  "author": {
+    "@type": "Person",
+    "name": "Raellen"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "RAELLEN ",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://raellen.github.io/image/brand/icon-1-1.png"
+    }
+  },
+  "datePublished": "2022-11-24T15:00:00Z",
+  "dateModified": "2022-11-24T15:00:00Z",
+  "articleBody": "\u003cp\u003e學習資源\u003c/p\u003e\n\u003cul\u003e\n\u003cli\u003e影片：\n\u003cul\u003e\n\u003cli\u003e\u003ca href=\"https://www.youtube.com/watch?v=bwItFdPt-6M\"\u003eVue 3 Composition API Introduction\u003c/a\u003e\u003c/li\u003e\n\u003cli\u003e\u003ca href=\"https://www.youtube.com/watch?v=ZqgiuPt5QZo\"\u003eVue 3 For Beginners - Full Tutorial Course\u003c/a\u003e\u003c/li\u003e\n\u003c/ul\u003e\n\u003c/li\u003e\n\u003cli\u003e參考資料：\n\u003cul\u003e\n\u003cli\u003e\u003ca href=\"https://book.vue.tw/preface.html\"\u003e重新認識 Vue.js | Kuro Hsu\u003c/a\u003e\u003c/li\u003e\n\u003cli\u003e\u003ca href=\"https://medium.com/peerone-technology-%E7%9A%AE%E5%81%B6%E7%8E%A9%E4%BA%92%E5%8B%95%E7%A7%91%E6%8A%80/%E5%8D%87%E7%B4%9A-vue-3-%E5%89%8D-%E4%BD%A0%E5%BF%85%E9%A0%88%E8%A6%81%E7%9F%A5%E9%81%93%E7%9A%84%E6%94%B9%E5%8B%95-5891a297dbe2\"\u003e升級 Vue 3 前，你必須要知道的改動\u003c/a\u003e\u003c/li\u003e\n\u003cli\u003e\u003ca href=\"https://www.fly63.com/article/detial/10595\"\u003eVue3 Hook 到底是啥黑魔法？\n\u003c/a\u003e\u003c/li\u003e\n\u003c/ul\u003e\n\u003c/li\u003e\n\u003c/ul\u003e\n\u003ch2 id=\"升級後的重大變革\"\u003e升級後的重大變革\u003c/h2\u003e\n\u003ch3 id=\"新增功能\"\u003e新增功能\u003c/h3\u003e\n\u003ch4 id=\"1-composition-apicomposition-api-簡介\"\u003e1. \u003ca href=\"#Composition-API-%E7%B0%A1%E4%BB%8B\"\u003eComposition API\u003c/a\u003e\u003c/h4\u003e\n\u003cul\u003e\n\u003cli\u003e相關邏輯可以集中\u003c/li\u003e\n\u003cli\u003e減少 this 指向的問題\u003c/li\u003e\n\u003cli\u003e\u003ca href=\"#Vue3-%E8%87%AA%E5%AE%9A%E7%BE%A9Hook\"\u003eVue3 自定義Hook\u003c/a\u003e\n\u003cul\u003e\n\u003cli\u003e使用 Composition API 寫法取代舊版 mixins\u003c/li\u003e\n\u003cli\u003ehook是一個函式\u003c/li\u003e\n\u003cli\u003e將程式碼拆解，能夠讓各個頁面引用\n\u003cul\u003e\n\u003cli\u003e可以當作公用的函式\u003c/li\u003e\n\u003c/ul\u003e\n\u003c/li\u003e\n\u003c/ul\u003e\n\u003c/li\u003e\n\u003c/ul\u003e\n\u003ch4 id=\"2-usecssvars\"\u003e2. useCssVars\u003c/h4\u003e\n\u003cul\u003e\n\u003cli\u003e可以在組件加上自訂的 CSS 變數 var()\u003c/li\u003e\n\u003c/ul\u003e\n\u003ch4 id=\"3-teleport\"\u003e3. Teleport\u003c/h4\u003e\n\u003cul\u003e\n\u003cli\u003eTeleport 可以將定義的內容轉移到目標元素。\u003c/li\u003e\n\u003c/ul\u003e\n\u003ch4 id=\"4--fragments\"\u003e4.  Fragments\u003c/h4\u003e\n\u003cul\u003e\n\u003cli\u003e模板可以省略根元素，避免多出許多不必要的元素\u003c/li\u003e\n\u003c/ul\u003e\n\u003ch4 id=\"5--emits-component-option\"\u003e5.  Emits Component Option\u003c/h4\u003e\n\u003cul\u003e\n\u003cli\u003eVue 3 提供 emits 的聲明，用法就像 props 一樣。\u003c/li\u003e\n\u003c/ul\u003e\n\u003ch4 id=\"6--suspense--error-boundary\"\u003e6.  Suspense \u0026amp; Error Boundary\u003c/h4\u003e\n\u003cul\u003e\n\u003cli\u003eSuspense 是非同步載入的組件，在資料讀取完成以及渲染完成之前，會先顯示 \u003cstrong\u003e#fallback\u003c/strong\u003e 的內容。\u003c/li\u003e\n\u003cli\u003e可以不用特地加一個 loading 變數來處理加載資料時的判斷\u003c/li\u003e\n\u003c/ul\u003e\n\u003ch4 id=\"7--v-slotted--v-global\"\u003e7.  ::v-slotted \u0026amp; ::v-global\u003c/h4\u003e\n\u003ch3 id=\"棄用的功能\"\u003e棄用的功能\u003c/h3\u003e\n\u003ch4 id=\"1-keycode\"\u003e1. KeyCode\u003c/h4\u003e\n\u003ch4 id=\"2-on-off-once\"\u003e2. \u003ccode\u003e$on\u003c/code\u003e, \u003ccode\u003e$off\u003c/code\u003e\u0026amp; \u003ccode\u003e$once\u003c/code\u003e\u003c/h4\u003e\n\u003cul\u003e\n\u003cli\u003e移除 \u003ccode\u003e$on\u003c/code\u003e, \u003ccode\u003e$off\u003c/code\u003e\u0026amp; \u003ccode\u003e$once\u003c/code\u003e 也代表不能再使用\u003cstrong\u003eEventBus\u003c/strong\u003e\u003c/li\u003e\n\u003c/ul\u003e\n\u003ch4 id=\"3-inline-template-attribute\"\u003e3. Inline Template Attribute\u003c/h4\u003e\n\u003cpre tabindex=\"0\"\u003e\u003ccode class=\"language-javascript=\" data-lang=\"javascript=\"\u003e\u0026lt;!-- before --\u0026gt;\n\u0026lt;my-comp inline-template :msg=\u0026quot;parentMsg\u0026quot;\u0026gt;\n  {{ msg }} {{ childState }}\n\u0026lt;/my-comp\u0026gt;\n\n\u0026lt;!-- after --\u0026gt;\n\u0026lt;my-comp v-slot=\u0026quot;{ childState }\u0026quot;\u0026gt;\n  {{ parentMsg }} {{ childState }}\n\u0026lt;/my-comp\u0026gt;\n\u0026lt;!-- my-comp --\u0026gt;\n\u0026lt;slot :childState=\u0026quot;childState\u0026quot; /\u0026gt;\n\u003c/code\u003e\u003c/pre\u003e\u003ch4 id=\"4-filters\"\u003e4. Filters\u003c/h4\u003e\n\u003ch4 id=\"5-listeners\"\u003e5. $listeners\u003c/h4\u003e\n\u003cul\u003e\n\u003cli\u003e在 Vue3 中 $listeners 已經整合到 $attrs\u003c/li\u003e\n\u003c/ul\u003e\n\u003cpre tabindex=\"0\"\u003e\u003ccode\u003eVue2: \n\u0026lt;input type=\u0026quot;text\u0026quot; v-bind=\u0026quot;$attrs\u0026quot; v-on=\u0026quot;$listeners\u0026quot; /\u0026gt;\nVue3:\n\u0026lt;input type=\u0026quot;text\u0026quot; v-bind=\u0026quot;$attrs\u0026quot; /\u0026gt;\n\u003c/code\u003e\u003c/pre\u003e\u003ch2 id=\"composition-api-簡介\"\u003eComposition API 簡介\u003c/h2\u003e\n\u003ch3 id=\"composition-api-是什麼\"\u003eComposition API 是什麼\u003c/h3\u003e\n\u003cp\u003eComposition API 其實就是要取代 Vue2時，元件與元件間的程式碼與邏輯結構分散，難以重複使用的問題。\n也可看作Function-based APIs，就是以函式作為邏輯的中心，將「該放一起的東西放在一起」。\u003c/p\u003e\n\u003ch3 id=\"vue2-的-options-api-出了什麼問題\"\u003eVue2 的 Options API 出了什麼問題？\u003c/h3\u003e\n\u003cp\u003e\u003cimg src=\"https://i.imgur.com/KdPPkrc.png\" alt=\"\"\u003e\n原先，Vue2是將不同功能拆開來使用，但是隨著元件的增多。同一個邏輯操作的程式碼卻散佈在各個地方，不但不利於維護，也難以重複使用。\u003c/p\u003e\n\u003ch3 id=\"功能與邏輯的重複使用\"\u003e功能與邏輯的重複使用\u003c/h3\u003e\n\u003col\u003e\n\u003cli\u003e\n\u003cp\u003e\u003cstrong\u003eMixins 不再建議繼續使用\u003c/strong\u003e\u003c/p\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cp\u003e\u003cstrong\u003e自定義指令\u003c/strong\u003e\n透過app.directive() 來建立一個客製化的指令，假設叫它'img-fallback'\u003c/p\u003e\n\u003cp\u003e當圖片載入錯誤時，用預設圖取代\u003c/p\u003e\n\u003cpre tabindex=\"0\"\u003e\u003ccode class=\"language-javascript=\" data-lang=\"javascript=\"\u003e//建立新元件\nconst app = vue.createApp({});\n\n//在 app 註冊自定義指令\napp.directive('img-fallback', {\n    //mounted hook\n    mounted(el){\n    //當el觸發error事件的時候，把src換成預設圖\n        el.add.EventListener('error',() =\u0026gt; {\n        el.src = 'default.png'\n        })\n    }    \n})\n\n\u003c/code\u003e\u003c/pre\u003e\u003cp\u003e此時便可在所有想設定預設圖的\u003ccode\u003e\u0026lt;img\u0026gt;\u003c/code\u003e標籤加上v-img-fallback的自訂指令\u003c/p\u003e\n\u003cpre tabindex=\"0\"\u003e\u003ccode class=\"language-javascript=\" data-lang=\"javascript=\"\u003e\u0026lt;div-id=\u0026quot;app\u0026quot;\u0026gt;\n\u0026lt;img\n    v-img-fallback\n    src=\u0026quot;noimage.png\u0026quot;\n\u0026lt;/div\u0026gt;\n\u003c/code\u003e\u003c/pre\u003e\u003cp\u003e此時，當瀏覽器試圖取得不存在的圖檔(noimage.png)時，就會觸發error事件，並且將圖檔置換成預設圖片。\u003c/p\u003e\n\u003cp\u003e除了 mounted鉤子外，還有其他的鉤子可以使用：\u003c/p\u003e\n\u003cul\u003e\n\u003cli\u003ecreated\u003c/li\u003e\n\u003cli\u003ebeforeMounted\u003c/li\u003e\n\u003cli\u003emounted\u003c/li\u003e\n\u003cli\u003ebeforeUpdate\u003c/li\u003e\n\u003cli\u003eupdated\u003c/li\u003e\n\u003cli\u003ebeforeUnmount\u003c/li\u003e\n\u003cli\u003eunmomunted\u003c/li\u003e\n\u003c/ul\u003e\n\u003c/li\u003e\n\u003c/ol\u003e\n\u003cp\u003e這裡的鉤子函式是「指令」所使用的鉤子函式，與生命週期鉤子沒有直接關係。\u003c/p\u003e\n\u003col start=\"3\"\u003e\n\u003cli\u003e\u003cstrong\u003eComposition API\u003c/strong\u003e\n\u003cimg src=\"https://i.imgur.com/FXQVReM.png\" alt=\"\"\u003e\n將跨元件共用的屬性(如data、computed、methods等)包裝起來，然後再將要使用的元件引入進去。\n\u003cimg src=\"https://i.imgur.com/awzOspm.png\" alt=\"\"\u003e\n與mixins最大的差別在於，被import到元件內的屬性，必須要以「物件」或「函式」的形式來將它們引入到元件中。\u003c/li\u003e\n\u003c/ol\u003e\n\u003ch4 id=\"vue3-自定義hook\"\u003eVue3 自定義Hook\u003c/h4\u003e\n\u003cul\u003e\n\u003cli\u003e能夠將程式碼拆解，成為能夠引用的公用函式\u003c/li\u003e\n\u003c/ul\u003e\n\u003cp\u003e範例程式碼：./mouse\u003c/p\u003e\n\u003cpre tabindex=\"0\"\u003e\u003ccode class=\"language-javascript=\" data-lang=\"javascript=\"\u003eimport { ref, onMounted, onUnmounted } from \u0026quot;vue\u0026quot;;\n\nexport function useMousePosition() {\n  const x = ref(0);\n  const y = ref(0);\n\n  function update(e) {\n    x.value = e.pageX;\n    y.value = e.pageY;\n  }\n\n  onMounted(() =\u0026gt; {\n    window.addEventListener(\u0026quot;mousemove\u0026quot;, update);\n  });\n\n  onUnmounted(() =\u0026gt; {\n    window.removeEventListener(\u0026quot;mousemove\u0026quot;, update);\n  });\n\n  return { x, y };\n}\n\u003c/code\u003e\u003c/pre\u003e\u003cp\u003e在頁面或組件中引用的方式\u003c/p\u003e\n\u003cpre tabindex=\"0\"\u003e\u003ccode class=\"language-javascript=\" data-lang=\"javascript=\"\u003e// 引用整個函式\nimport { useMousePosition } from \u0026quot;./mouse\u0026quot;;\n\nexport default {\n  setup() {\n      // 定義並return 函式所return的東西即可\n    const { x, y } = useMousePosition();\n    return { x, y };\n  },\n};\n\u003c/code\u003e\u003c/pre\u003e\u003ch2 id=\"composition-api核心\"\u003eComposition API 核心\u003c/h2\u003e\n\u003cp\u003eCompostion API 與 Options API 最大的差別：\u003c/p\u003e\n\u003cul\u003e\n\u003cli\u003e元件的實體物件內不會再有 data、computed、methods 與生命週期 Hooks 等屬性\n\u003cspan style=\"color:red;\"\u003e（\u003cstrong\u003e禁止再將上述屬性放到實體物件中\u003c/strong\u003e）\u003c/span\u003e\u003c/li\u003e\n\u003cli\u003e取代原先分散式的結構\u003c/li\u003e\n\u003cli\u003e解決以 this 取得屬性所產生的問題\u003c/li\u003e\n\u003cli\u003e以新的setup()函式取代\u003c/li\u003e\n\u003c/ul\u003e\n\u003ch3 id=\"setup-啟動元件的位置\"\u003esetup: 啟動元件的位置\u003c/h3\u003e\n\u003cul\u003e\n\u003cli\u003e增加可讀性\u003c/li\u003e\n\u003cli\u003e要將模板內會用到的部分 return 出去\u003c/li\u003e\n\u003c/ul\u003e\n\u003cpre tabindex=\"0\"\u003e\u003ccode class=\"language-javascript=\" data-lang=\"javascript=\"\u003esetup(){\n// 將程式邏輯定義在todoList()內\n// 增加可讀性\n    const {todo, items, add , remove } = todoList();\n\n// 將模板會用到的部分 return 出去\n    return {\n    todo,\n    items,\n    add,\n    remove\n    };\n}\n\u003c/code\u003e\u003c/pre\u003e\u003ch3 id=\"props-與-context\"\u003eprops 與 context\u003c/h3\u003e\n\u003cp\u003e當setup()啟動時，會帶入兩個參數：props與context\n由於已經不再使用 this 來存取屬性，所以可以透過 setup 函式提供的 props 物件來取得 props 的內容\u003c/p\u003e\n\u003cul\u003e\n\u003cli\u003e取代原先以 this 存取屬性的 props\u003c/li\u003e\n\u003cli\u003econtext名稱可自訂\u003c/li\u003e\n\u003c/ul\u003e\n\u003cpre tabindex=\"0\"\u003e\u003ccode class=\"language-javascript=\" data-lang=\"javascript=\"\u003eexport default {\nprops {\n    defaultNum: {\n    type: Number,\n    defautl: 0\n    }\n},\n//注意要加上props\n    setup(props,context) {\n        // 透過prop物件取的對應的屬性\n        console.log(props.defaultNum);\n    }\n}\n\u003c/code\u003e\u003c/pre\u003e\u003ch4 id=\"context物件\"\u003econtext物件\u003c/h4\u003e\n\u003cul\u003e\n\u003cli\u003e提供了 attrs, slots, emit 三種屬性，分別對應到元件的實體物件上\u003c/li\u003e\n\u003cli\u003e可以透過 context.attrs、context.slots、context.emit 來使用\u003c/li\u003e\n\u003c/ul\u003e\n\u003cpre tabindex=\"0\"\u003e\u003ccode class=\"language-javascript=\" data-lang=\"javascript=\"\u003e\u0026lt;template\u0026gt;\n    \u0026lt;div @click=\u0026quot;clickInfo\u0026quot;\u0026gt;\n        子组件 == {{name1}}, {{title1}}\n    \u0026lt;/div\u0026gt;\n\u0026lt;/template\u0026gt;\n\u0026lt;script\u0026gt;\nimport { reactive } from 'vue'\nexport default {\n    name: 'child1',\n    props: {\n        name: String,\n        title: String\n    },\n    setup(props, context){\n        \n        const name1 = reactive(props.name)\n        const title1 = reactive(props.title)\n        // 子组件点击事件\n        const clickInfo = ()=\u0026gt;{\n            // 抛出事件\n            context.emit('itemclick', {name: 'emitClick'})\n        }\n        return { name1, title1, clickInfo };\n    }\n}\n\u0026lt;/script\u0026gt;\n\u003c/code\u003e\u003c/pre\u003e\u003ch3 id=\"ref-與-reactive--使值動態響應\"\u003eref 與 reactive ： 使值動態響應\u003c/h3\u003e\n\u003cp\u003e在Compotision API 中，可以使用ref()來將數值進行包裝，並且回傳一個響應式的「物件」。\n這個ref()函式：\u003c/p\u003e\n\u003cul\u003e\n\u003cli\u003e可以包裝原始型別(primitive)，也可以包裝物件或陣列。\u003c/li\u003e\n\u003cli\u003e必須後綴.value來讀取數值\u003c/li\u003e\n\u003c/ul\u003e\n\u003cp\u003e在這個物件內，會提供一個value的屬性，可以透過這個value來更新或讀取狀態內的數值：\u003c/p\u003e\n\u003cpre tabindex=\"0\"\u003e\u003ccode class=\"language-javascript=\" data-lang=\"javascript=\"\u003econst count = ref(0);\nconsole.log(count.value); //0\ncount.valut++;\nconsole.log(count.value); //1\n\u003c/code\u003e\u003c/pre\u003e\u003cp\u003e範例：count.vue\u003c/p\u003e\n\u003cpre tabindex=\"0\"\u003e\u003ccode class=\"language-javascript=\" data-lang=\"javascript=\"\u003e\u0026lt;template\u0026gt;\n    \u0026lt;h1\u0026gt;{{ count }}\u0026lt;/h1\u0026gt;\n    \u0026lt;button @click=\u0026quot;plus\u0026quot;\u0026gt;Plus\u0026lt;/button\u0026gt;\n\u0026lt;/template\u0026gt;\n\n\u0026lt;script\u0026gt;\n    // 透過import 引入 ref\n    import { ref } from 'vue';\n    \n    export default {\n        setup(){\n            const count = ref(0)\n        }\n        \n        return {\n            // 透過 ref()包裝的數值可保有響應性\n            count,\n            plus,\n            // 純數值在模板中同樣可以渲染，但不會有響應性追蹤\n            nonReactiveCount: 0\n        }\n    }\n\u0026lt;/script\u0026gt;\n\u003c/code\u003e\u003c/pre\u003e\u003ch4 id=\"ref-與-dom-節點替代ref\"\u003eref 與 Dom 節點：替代$ref\u003c/h4\u003e\n\u003cp\u003e由於setup()中已無this.$ref可用，要存取DOM中的元素，可利用先前提到的\u003cstrong\u003eref()\u003c/strong\u003e。\u003c/p\u003e\n\u003cpre tabindex=\"0\"\u003e\u003ccode class=\"language-javascript=\" data-lang=\"javascript=\"\u003e\u0026lt;template\u0026gt;\n    \u0026lt;!-- 模板內要加上 ref 屬性 --\u0026gt;\n    \u0026lt;div ref=\u0026quot;root\u0026quot;\u0026gt;\u0026lt;/div\u0026gt;\n\u0026lt;/template\u0026gt;\n\n\u0026lt;script\u0026gt;\n    import { ref, onMounted } from 'vue'\n    \n    export default {\n        setup(){\n            // 這裡的 root 與 \u0026lt;div ref=\u0026quot;root\u0026quot;\u0026gt; 配對\n            const root = ref(null);\n            \n            //可以透過 root.value 取得實際的 DOM 元素\n            onMounted(()=\u0026gt;{\n                console.log(root.value);\n            })\n        return {\n            root,\n            }\n        }\n    }\n\u0026lt;/script\u0026gt;\n\n\u003c/code\u003e\u003c/pre\u003e\u003ch4 id=\"v-for-與-ref-複數動態節點--v-bindref\"\u003ev-for 與 ref 複數動態節點 ： v-bind:ref\u003c/h4\u003e\n\u003cp\u003e當 DOM 節點是透過 v-for 產生，同時又需要 ref 綁定模板時，\n可以透過 v-bind:ref 綁定到某個陣列：\u003c/p\u003e\n\u003cpre tabindex=\"0\"\u003e\u003ccode class=\"language-htmlmixed=\" data-lang=\"htmlmixed=\"\u003e\u0026lt;div\n    v-for=\u0026quot;(item, i) in list\u0026quot;\n    :ref=\u0026quot; el =\u0026gt; { divs[i] = el }\u0026quot;\n\u0026gt;\n    {{ item }}\n\u0026lt;/div\u0026gt;\n\u003c/code\u003e\u003c/pre\u003e\u003cp\u003e如此便能指定divs[0]、divs[1]、divs[2]所對應的\u003ccode\u003e\u0026lt;div\u0026gt;\u003c/code\u003e節點：\u003c/p\u003e\n\u003cpre tabindex=\"0\"\u003e\u003ccode\u003eexport default {\n    setup(){\n        const list = reactive([1,2,3]);\n        const divs = ref ([]);\n        \n        //確保在每次更新前重置divs\n        onBeforeUpdate(()=\u0026gt; {\n            divs.value = [];;lll\n        })\n        \n        return {\n            list,\n            divs,\n        }\n    }\n}\n\u003c/code\u003e\u003c/pre\u003e\u003ch4 id=\"reactive--包裝響應式物件的另一種函式\"\u003ereactive() ： 包裝響應式物件的另一種函式\u003c/h4\u003e\n\u003cp\u003e除了ref()，也可以使用reactive()來包裝響應式物件。\n兩者最大的不同是:\u003c/p\u003e\n\u003cul\u003e\n\u003cli\u003eref()可以包裝原始型別(primitive)，也可以包裝物件或陣列。\u003c/li\u003e\n\u003cli\u003ereactive內的參數只能是「物件」\u003c/li\u003e\n\u003cli\u003ereactive()存取內部屬性時，不需後綴.value\u003c/li\u003e\n\u003c/ul\u003e\n\u003cpre tabindex=\"0\"\u003e\u003ccode class=\"language-javascript=\" data-lang=\"javascript=\"\u003e\u0026lt;template\u0026gt;\n    \u0026lt;h1\u0026gt;{{ data.count }}\u0026lt;/h1\u0026gt;\n    \u0026lt;button @click=\u0026quot;data.plus\u0026quot;\u0026gt;plus\u0026lt;/button\u0026gt;\n\u0026lt;/template\u0026gt;\n\n\u0026lt;script\u0026gt;\nimport { reactive } from \u0026quot;vue\u0026quot;\nexport default {\n    setup(){\n        //reactive包裝物件\n        const data = reactive({\n        count:0,\n        plus() =\u0026gt; data.count++\n        });\n        \n        return {\n            data\n        };\n    }\n};\n\u0026lt;/scrpit\u0026gt;\n\u003c/code\u003e\u003c/pre\u003e\u003cul\u003e\n\u003cli\u003ereactive()回傳一個被ES6 Proxy代理過的物件，才能做到響應式的更新。\u003c/li\u003e\n\u003c/ul\u003e\n\u003ch4 id=\"torefs-與-reactive解決es6解構語法造成的不響應問題\"\u003etoRefs 與 reactive：解決ES6解構語法造成的不響應問題\u003c/h4\u003e\n\u003cp\u003e使用ES6的展開運算子「...」時，會將物件從響應式狀態抽離，變成普通物件。\n因此需要改用 toRefs()\u003c/p\u003e\n\u003cpre tabindex=\"0\"\u003e\u003ccode class=\"language-javascript=\" data-lang=\"javascript=\"\u003e\u0026lt;template\u0026gt;\n    \u0026lt;h1\u0026gt;{{ data.count }}\u0026lt;/h1\u0026gt;\n    \u0026lt;button @click=\u0026quot;data.plus\u0026quot;\u0026gt;plus\u0026lt;/button\u0026gt;\n\u0026lt;/template\u0026gt;\n\n\u0026lt;script\u0026gt;\nimport { toRefs } from \u0026quot;vue\u0026quot;\nimport counter from \u0026quot;./counter\u0026quot;\n\nexport default {\n    setup(){\n        //reactive包裝物件\n        const count = counter();\n        \n        return {\n            ...toRefs(count)\n        };\n    }\n};\n\u0026lt;/scrpit\u0026gt;\n\u003c/code\u003e\u003c/pre\u003e\u003ch3 id=\"computed\"\u003ecomputed\u003c/h3\u003e\n\u003cp\u003eComposition API的computed，要改為函數式的寫法：\u003c/p\u003e\n\u003cul\u003e\n\u003cli\u003e要後綴 .value 來讀取值\u003c/li\u003e\n\u003cli\u003ecomputed 的參數為一個 getter 函式，並回傳一個 ref 物件\u003c/li\u003e\n\u003c/ul\u003e\n\u003cpre tabindex=\"0\"\u003e\u003ccode class=\"language-javascript=\" data-lang=\"javascript=\"\u003e\u0026lt;template\u0026gt;\n    \u0026lt;h1\u0026gt;{{ data.count }}\u0026lt;/h1\u0026gt;\n    \u0026lt;h1\u0026gt;{{ doubleCount }}\u0026lt;/h1\u0026gt;\n    \u0026lt;h1\u0026gt;{{ quadrupleCount }}\u0026lt;/h1\u0026gt;\n    \n    \u0026lt;button @click=\u0026quot;plus\u0026quot;\u0026gt;\n        Plus\n    \u0026lt;/button\u0026gt;\n\u0026lt;/template\u0026gt;\n\n\u0026lt;script\u0026gt;\nimport { ref, computed } from \u0026quot;vue\u0026quot;\nimport counter from \u0026quot;./counter\u0026quot;\n\nexport default {\n    setup(){\n        const count = ref(0);\n        \n        // computed 的參數為一個 getter 函式，並回傳一個 ref 物件\n        const doubleCount = computed(()=\u0026gt; count.value * 2);\n        \n        //使用 computed回傳的內容要後綴.value\n        const quadrupleCount = computed(()=\u0026gt; doubleCount.value * 2);\n        const plus = () =\u0026gt; count.value++;\n        \n        return {\n            count,\n            doubleCount,\n            quadrupleCount,\n            plus\n        };\n    }\n};\n\u0026lt;/scrpit\u0026gt;\n\u003c/code\u003e\u003c/pre\u003e\u003ch4 id=\"computed-的-get-與-set\"\u003ecomputed 的 get 與 set\u003c/h4\u003e\n\u003cul\u003e\n\u003cli\u003ecomputed 可以傳入 getter\u003c/li\u003e\n\u003cli\u003ecomputed 可以傳入 get 與 set\u003c/li\u003e\n\u003c/ul\u003e\n\u003cpre tabindex=\"0\"\u003e\u003ccode class=\"language-javascript=\" data-lang=\"javascript=\"\u003econst count = ref(0)\n\nconst plusOne = computed({\n    get:() =\u0026gt; count.value + 1,\n    set:(val) =\u0026gt; {\n        count.value = val - 1\n    }\n})\n\u003c/code\u003e\u003c/pre\u003e\u003ch3 id=\"readonly\"\u003ereadonly\u003c/h3\u003e\n\u003cp\u003e將物件傳到readonly()中，會回傳一個被代理過的「唯獨」物件：\u003c/p\u003e\n\u003cpre tabindex=\"0\"\u003e\u003ccode class=\"language-javascript=\" data-lang=\"javascript=\"\u003esetup() {\n    const original = reactive({ count: 0 });\n    const copy = readonly(orignal);\n    const plus = () =\u0026gt; original.count++;\n    \n    return {\n        original,\n        copy,\n        plus,\n    }\n}\n\u003c/code\u003e\u003c/pre\u003e\u003cp\u003e執行plus()後，original.count 會從 0 變成 1\n而透過readonly()包裝後回傳的copy物件，內部的.count 也會變成 1\u003c/p\u003e\n\u003ch3 id=\"methods\"\u003emethods\u003c/h3\u003e\n\u003cul\u003e\n\u003cli\u003eComposition API 不再提供methods\u003c/li\u003e\n\u003cli\u003e直接將函式透過setup() return出去即可\u003c/li\u003e\n\u003c/ul\u003e\n\u003ch3 id=\"watch--watcheffect\"\u003ewatch \u0026amp; watchEffect\u003c/h3\u003e\n\u003cul\u003e\n\u003cli\u003e在 Composition API中，要改為函數式語法\u003c/li\u003e\n\u003cli\u003e可以觀察單一的 ref 物件\u003c/li\u003e\n\u003cli\u003e也可以觀察響應的 reactive 物件\u003c/li\u003e\n\u003c/ul\u003e\n\u003cp\u003e\u003cstrong\u003e觀察單一 ref 物件\u003c/strong\u003e\u003c/p\u003e\n\u003cpre tabindex=\"0\"\u003e\u003ccode class=\"language-javascript=\" data-lang=\"javascript=\"\u003ewatch(count, (val, oldVal) =\u0026gt; {\n    console.log(`new count is $(val), preCount is $(oldVal)`)\n})\n\u003c/code\u003e\u003c/pre\u003e\u003cp\u003e\u003cstrong\u003e觀察 reactive 物件\u003c/strong\u003e\u003c/p\u003e\n\u003cul\u003e\n\u003cli\u003e將傳入 watch()的參數count 改為 ()=\u0026gt;data.count\u003c/li\u003e\n\u003c/ul\u003e\n\u003cpre tabindex=\"0\"\u003e\u003ccode class=\"language-javascript=\" data-lang=\"javascript=\"\u003ewatch(\n    ()=\u0026gt;data.count,\n    (val, oldVal) =\u0026gt; { console.log(`new count is $(val), preCount is $(oldVal)`)}\n)\n\u003c/code\u003e\u003c/pre\u003e\u003cp\u003e\u003cstrong\u003e透過陣列同時 watch 多個屬性\u003c/strong\u003e\u003c/p\u003e\n\u003cul\u003e\n\u003cli\u003ecallback 是共用的\u003c/li\u003e\n\u003c/ul\u003e\n\u003cpre tabindex=\"0\"\u003e\u003ccode\u003e    watch(\n        [() =\u0026gt; data.count,() =\u0026gt; data.doubleCount],\n        ([newCount, newDoubleCount], [PreCount, PreDoubleCound]) =\u0026gt; {\n            console.log(`new count is $(newCount), prevCount is ${prevCount}` )\n            console.log(`new doubleCount is $(newDoubleCount), prevDoubleCount is ${prevDoubleCount}` )\n        }\n    ) \n\u003c/code\u003e\u003c/pre\u003e\u003cp\u003e\u003cstrong\u003e對不同屬性更新想執行不同的動作\u003c/strong\u003e\u003c/p\u003e\n\u003cul\u003e\n\u003cli\u003e可以分別寫兩個 watch\u003c/li\u003e\n\u003c/ul\u003e\n\u003cp\u003e\u003cstrong\u003e觀察陣列或物件\u003c/strong\u003e\u003c/p\u003e\n\u003cul\u003e\n\u003cli\u003e需要在watch()中加入第三個參數， \u003cstrong\u003e{deep: true}\u003c/strong\u003e\u003c/li\u003e\n\u003c/ul\u003e\n\u003ch4 id=\"watcheffect\"\u003ewatchEffect\u003c/h4\u003e\n\u003cul\u003e\n\u003cli\u003e當.value更新時，會呼叫callback\u003c/li\u003e\n\u003cli\u003e與 watch的差別：\n\u003cul\u003e\n\u003cli\u003ewatchEffect會在 setup 剛建立時就執行一次\u003c/li\u003e\n\u003cli\u003e不需要像watch一樣指定觀察的目標\u003c/li\u003e\n\u003cli\u003e內部的callback函式對應數值更新後自動執行( 類似coumputed )\u003c/li\u003e\n\u003cli\u003ewatchEffect 無法取得更新前的數值\u003c/li\u003e\n\u003c/ul\u003e\n\u003c/li\u003e\n\u003c/ul\u003e\n\u003cpre tabindex=\"0\"\u003e\u003ccode class=\"language-javascript=\" data-lang=\"javascript=\"\u003ewatchEffect(()=\u0026gt; {\n    console.log(\u0026quot;watchEffect\u0026quot;, count.value);\n})\n\u003c/code\u003e\u003c/pre\u003e\u003cp\u003e\u003cstrong\u003e解除 watchEffect 觀察\u003c/strong\u003e\u003c/p\u003e\n\u003cul\u003e\n\u003cli\u003e個別的watchEffect() 被呼叫後會回傳一個屬於它的停止函式。\u003c/li\u003e\n\u003cli\u003e想要解除觀察時，可以呼叫該watchEffect() 所回傳的函式來停止觀察。\u003c/li\u003e\n\u003cli\u003e只能在現存元件中使用，如果元件被銷毀，provide 與 inject 的連結就會失效\u003c/li\u003e\n\u003c/ul\u003e\n\u003cpre tabindex=\"0\"\u003e\u003ccode class=\"language-javascript=\" data-lang=\"javascript=\"\u003econst stop1 = watchEffect(() =\u0026gt; {\n    console.log(\u0026quot;watchEffect\u0026quot;, count.value)\n})\n\u003c/code\u003e\u003c/pre\u003e\u003ch3 id=\"相依性注入-dependency-injection\"\u003e相依性注入 (Dependency Injection)\u003c/h3\u003e\n\u003cul\u003e\n\u003cli\u003eComposition API 版的 provide 與 inject\nstore.js\u003c/li\u003e\n\u003c/ul\u003e\n\u003cpre tabindex=\"0\"\u003e\u003ccode class=\"language-javascript=\" data-lang=\"javascript=\"\u003e    export {\n        todoList: symbol()\n    };\n\u003c/code\u003e\u003c/pre\u003e\u003cul\u003e\n\u003cli\u003e在提供狀態的元件加上provide()，並將內容指定到對應的物件上：\nprovide.vue\u003c/li\u003e\n\u003c/ul\u003e\n\u003cpre tabindex=\"0\"\u003e\u003ccode class=\"language-javascript=\" data-lang=\"javascript=\"\u003e//提供者元件\nimport { ref, provide } from \u0026quot;vue\u0026quot;;\nimport store from \u0026quot;./store\u0026quot;;\n\nexport defautl {\n    setup(){\n        const todoList = ref([]);\n        \n        // 將 todoList 透過 provide 指定到 store.todoList\n        provide(store.todoList, todoList);\n        \n        return {\n            todoList,\n        };\n    },\n};\n\u003c/code\u003e\u003c/pre\u003e\u003cul\u003e\n\u003cli\u003e在取用的元件，透過inject取出：\ninject.vue\u003c/li\u003e\n\u003c/ul\u003e\n\u003cpre tabindex=\"0\"\u003e\u003ccode class=\"language-javascript=\" data-lang=\"javascript=\"\u003e//取用者元件\nimport { ref, inject } from \u0026quot;vue\u0026quot;;\nimport store from \u0026quot;./store\u0026quot;;\n\nexport default {\n    setup(){\n        // 透過inject 取出 store.todoList\n        const todoList = inject (store.todoList);\n        \n        return {\n            todoList,\n        }\n    }\n}\n\u003c/code\u003e\u003c/pre\u003e\u003ch3 id=\"composition-api-的生命週期鉤子\"\u003eComposition API 的生命週期鉤子\u003c/h3\u003e\n\u003cul\u003e\n\u003cli\u003e在 Composition API 中，生命鉤子改為函數式的語法：\u003c/li\u003e\n\u003c/ul\u003e\n\u003cpre tabindex=\"0\"\u003e\u003ccode class=\"language-javascript=\" data-lang=\"javascript=\"\u003e//使用時先import\nimport { onMounted, onUpdated, onUnmounted } from 'vue';\n\nconst MyComponent = {\n    setup() {\n    \n        onMounted(()=\u0026gt; {\n            console.log('mounted');\n        });\n        \n        onUpdated(()=\u0026gt; {\n            console.log('updated!');\n        })\n        \n        onUnmounted(()=\u0026gt; {\n            console.log('unmounted!')\n        })\n    }\n}\n\u003c/code\u003e\u003c/pre\u003e"
+}
+</script>
+
+<link rel="preload" as="script" href="/bundle.js?v=1669303559">
+
+
+</head>
+<body>
+
+  <header id="nav" class="header">
+  <div class=" ax-l-i max-w-6xl">
+    <div>
+      <div class="ax-logo">
+        <a class="block" href="/" title="RAELLEN "><span class="font-semibold text-raven-900 text-40">RAELLEN </span></a>
+      </div>
+      <div class="flex">
+        <a class="p-2 block text-base leading-none text-blue-600 hover:text-gray-800 focus:text-gray-800 focus:outline-none" href="/archive/">
+          Archive
+        </a>
+        <a class="p-2 block text-base leading-none text-blue-600 hover:text-gray-800 focus:text-gray-800 focus:outline-none" href="/tags">
+          Tags
+        </a>
+        <a class="p-2 block text-base leading-none text-blue-600 hover:text-gray-800 focus:text-gray-800 focus:outline-none" href="/gallery/">
+          Gallery
+        </a>
+        <a class="p-2 block text-base leading-none text-blue-600 hover:text-gray-800 focus:text-gray-800 focus:outline-none" href="/about/">
+          About
+        </a>
+      </div>
+    </div>
+    <div class="ax-user">
+      <a class="p-2 w-8 h-8 block text-raven-500 hover:text-gray-800 focus:text-gray-800 focus:outline-none" target="_blank" rel="noopener nofollow" href="https://www.google.com/search?q=site:https://raellen.github.io" title="Search">
+        <svg class="fill-current" viewBox="0 0 32 32" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M2.67 12.804c0-5.6 4.544-10.134 10.133-10.134s10.134 4.544 10.134 10.134-4.544 10.133-10.134 10.133S2.67 18.393 2.67 12.804zm28.943 16.923l-8.868-8.868c4.287-5.3 3.68-13.012-1.378-17.57S8.564-1.066 3.75 3.75s-5.017 12.558-.46 17.618 12.28 5.665 17.57 1.378l8.868 8.868a1.33 1.33 0 0 0 2.231-.597c.123-.46-.008-.952-.345-1.29h0z"/></svg>
+
+      </a>
+     
+      
+    </div>
+  </div>
+
+  
+  <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
+
+</header>
+  <main>
+<div class="default-single">
+  <div class="ax-title ax-l-o">
+    <div class="ax-l-i max-w-680">
+      <h2 class="section-title font-content-sans font-semibold uppercase tracking-wide text-2xl text-raven-800">Vue 3 改版後與 Vue 2 的差異</h2>
+      <p class="post-subtitle font-content-sans font-light text-xl text-raven-500 mt-3">紀錄 Vue 3 與 Vue 2 的差異.</p>
+
+      <div class="ax-meta flex items-center mt-5">
+        <div class="flex-grow min-w-0">
+          <div class="flex items-center">
+  <div class="flex-shrink-0">
+    <img
+    class="w-12 h-12 sm:w-14 sm:h-14 object-cover p-3px rounded-full border border-blue-300"
+    src="/image/author/Raellen.svg"
+    alt="Raellen">
+  </div>
+  <div class="flex-shrink-0 ml-2 leading-tight font-content-sans">
+    <a class="block text-sm text-raven-800 hover:text-raven-900 hover:underline focus:underline" target="_blank" rel="noopener nofollow" title="Raellen" href="https://example.com/">Raellen</a>
+    <time class="text-sm text-raven-500" datetime="2022-11-24T15:00:00Z">Nov 24, 2022 11:00PM</time>
+  </div>
+</div>
+
+        </div>
+        <div>
+          
+        </div>
+      </div>
+    </div>
+
+
+  </div>
+  <div class="ax-feature ax-l-o">
+    <div class="ax-l-i max-w-5xl">
+
+<figure>
+<img
+class="mb-2 mx-auto leading-none shadow-xl"
+src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/95/Vue.js_Logo_2.svg/323px-Vue.js_Logo_2.svg.png"
+alt="Vue 3 改版後與 Vue 2 的差異">
+</figure>
+
+
+    </div>
+  </div><div class="ax-content ax-l-o">
+    <div class="ax-l-i max-w-680">
+      <article class="cdata">
+<p>學習資源</p>
+<ul>
+<li>影片：
+<ul>
+<li><a href="https://www.youtube.com/watch?v=bwItFdPt-6M">Vue 3 Composition API Introduction</a></li>
+<li><a href="https://www.youtube.com/watch?v=ZqgiuPt5QZo">Vue 3 For Beginners - Full Tutorial Course</a></li>
+</ul>
+</li>
+<li>參考資料：
+<ul>
+<li><a href="https://book.vue.tw/preface.html">重新認識 Vue.js | Kuro Hsu</a></li>
+<li><a href="https://medium.com/peerone-technology-%E7%9A%AE%E5%81%B6%E7%8E%A9%E4%BA%92%E5%8B%95%E7%A7%91%E6%8A%80/%E5%8D%87%E7%B4%9A-vue-3-%E5%89%8D-%E4%BD%A0%E5%BF%85%E9%A0%88%E8%A6%81%E7%9F%A5%E9%81%93%E7%9A%84%E6%94%B9%E5%8B%95-5891a297dbe2">升級 Vue 3 前，你必須要知道的改動</a></li>
+<li><a href="https://www.fly63.com/article/detial/10595">Vue3 Hook 到底是啥黑魔法？
+</a></li>
+</ul>
+</li>
+</ul>
+<h2 id="升級後的重大變革">升級後的重大變革</h2>
+<h3 id="新增功能">新增功能</h3>
+<h4 id="1-composition-apicomposition-api-簡介">1. <a href="#Composition-API-%E7%B0%A1%E4%BB%8B">Composition API</a></h4>
+<ul>
+<li>相關邏輯可以集中</li>
+<li>減少 this 指向的問題</li>
+<li><a href="#Vue3-%E8%87%AA%E5%AE%9A%E7%BE%A9Hook">Vue3 自定義Hook</a>
+<ul>
+<li>使用 Composition API 寫法取代舊版 mixins</li>
+<li>hook是一個函式</li>
+<li>將程式碼拆解，能夠讓各個頁面引用
+<ul>
+<li>可以當作公用的函式</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h4 id="2-usecssvars">2. useCssVars</h4>
+<ul>
+<li>可以在組件加上自訂的 CSS 變數 var()</li>
+</ul>
+<h4 id="3-teleport">3. Teleport</h4>
+<ul>
+<li>Teleport 可以將定義的內容轉移到目標元素。</li>
+</ul>
+<h4 id="4--fragments">4.  Fragments</h4>
+<ul>
+<li>模板可以省略根元素，避免多出許多不必要的元素</li>
+</ul>
+<h4 id="5--emits-component-option">5.  Emits Component Option</h4>
+<ul>
+<li>Vue 3 提供 emits 的聲明，用法就像 props 一樣。</li>
+</ul>
+<h4 id="6--suspense--error-boundary">6.  Suspense &amp; Error Boundary</h4>
+<ul>
+<li>Suspense 是非同步載入的組件，在資料讀取完成以及渲染完成之前，會先顯示 <strong>#fallback</strong> 的內容。</li>
+<li>可以不用特地加一個 loading 變數來處理加載資料時的判斷</li>
+</ul>
+<h4 id="7--v-slotted--v-global">7.  ::v-slotted &amp; ::v-global</h4>
+<h3 id="棄用的功能">棄用的功能</h3>
+<h4 id="1-keycode">1. KeyCode</h4>
+<h4 id="2-on-off-once">2. <code>$on</code>, <code>$off</code>&amp; <code>$once</code></h4>
+<ul>
+<li>移除 <code>$on</code>, <code>$off</code>&amp; <code>$once</code> 也代表不能再使用<strong>EventBus</strong></li>
+</ul>
+<h4 id="3-inline-template-attribute">3. Inline Template Attribute</h4>
+<pre tabindex="0"><code class="language-javascript=" data-lang="javascript=">&lt;!-- before --&gt;
+&lt;my-comp inline-template :msg=&quot;parentMsg&quot;&gt;
+  {{ msg }} {{ childState }}
+&lt;/my-comp&gt;
+
+&lt;!-- after --&gt;
+&lt;my-comp v-slot=&quot;{ childState }&quot;&gt;
+  {{ parentMsg }} {{ childState }}
+&lt;/my-comp&gt;
+&lt;!-- my-comp --&gt;
+&lt;slot :childState=&quot;childState&quot; /&gt;
+</code></pre><h4 id="4-filters">4. Filters</h4>
+<h4 id="5-listeners">5. $listeners</h4>
+<ul>
+<li>在 Vue3 中 $listeners 已經整合到 $attrs</li>
+</ul>
+<pre tabindex="0"><code>Vue2: 
+&lt;input type=&quot;text&quot; v-bind=&quot;$attrs&quot; v-on=&quot;$listeners&quot; /&gt;
+Vue3:
+&lt;input type=&quot;text&quot; v-bind=&quot;$attrs&quot; /&gt;
+</code></pre><h2 id="composition-api-簡介">Composition API 簡介</h2>
+<h3 id="composition-api-是什麼">Composition API 是什麼</h3>
+<p>Composition API 其實就是要取代 Vue2時，元件與元件間的程式碼與邏輯結構分散，難以重複使用的問題。
+也可看作Function-based APIs，就是以函式作為邏輯的中心，將「該放一起的東西放在一起」。</p>
+<h3 id="vue2-的-options-api-出了什麼問題">Vue2 的 Options API 出了什麼問題？</h3>
+<p><img src="https://i.imgur.com/KdPPkrc.png" alt="">
+原先，Vue2是將不同功能拆開來使用，但是隨著元件的增多。同一個邏輯操作的程式碼卻散佈在各個地方，不但不利於維護，也難以重複使用。</p>
+<h3 id="功能與邏輯的重複使用">功能與邏輯的重複使用</h3>
+<ol>
+<li>
+<p><strong>Mixins 不再建議繼續使用</strong></p>
+</li>
+<li>
+<p><strong>自定義指令</strong>
+透過app.directive() 來建立一個客製化的指令，假設叫它'img-fallback'</p>
+<p>當圖片載入錯誤時，用預設圖取代</p>
+<pre tabindex="0"><code class="language-javascript=" data-lang="javascript=">//建立新元件
+const app = vue.createApp({});
+
+//在 app 註冊自定義指令
+app.directive('img-fallback', {
+    //mounted hook
+    mounted(el){
+    //當el觸發error事件的時候，把src換成預設圖
+        el.add.EventListener('error',() =&gt; {
+        el.src = 'default.png'
+        })
+    }    
+})
+
+</code></pre><p>此時便可在所有想設定預設圖的<code>&lt;img&gt;</code>標籤加上v-img-fallback的自訂指令</p>
+<pre tabindex="0"><code class="language-javascript=" data-lang="javascript=">&lt;div-id=&quot;app&quot;&gt;
+&lt;img
+    v-img-fallback
+    src=&quot;noimage.png&quot;
+&lt;/div&gt;
+</code></pre><p>此時，當瀏覽器試圖取得不存在的圖檔(noimage.png)時，就會觸發error事件，並且將圖檔置換成預設圖片。</p>
+<p>除了 mounted鉤子外，還有其他的鉤子可以使用：</p>
+<ul>
+<li>created</li>
+<li>beforeMounted</li>
+<li>mounted</li>
+<li>beforeUpdate</li>
+<li>updated</li>
+<li>beforeUnmount</li>
+<li>unmomunted</li>
+</ul>
+</li>
+</ol>
+<p>這裡的鉤子函式是「指令」所使用的鉤子函式，與生命週期鉤子沒有直接關係。</p>
+<ol start="3">
+<li><strong>Composition API</strong>
+<img src="https://i.imgur.com/FXQVReM.png" alt="">
+將跨元件共用的屬性(如data、computed、methods等)包裝起來，然後再將要使用的元件引入進去。
+<img src="https://i.imgur.com/awzOspm.png" alt="">
+與mixins最大的差別在於，被import到元件內的屬性，必須要以「物件」或「函式」的形式來將它們引入到元件中。</li>
+</ol>
+<h4 id="vue3-自定義hook">Vue3 自定義Hook</h4>
+<ul>
+<li>能夠將程式碼拆解，成為能夠引用的公用函式</li>
+</ul>
+<p>範例程式碼：./mouse</p>
+<pre tabindex="0"><code class="language-javascript=" data-lang="javascript=">import { ref, onMounted, onUnmounted } from &quot;vue&quot;;
+
+export function useMousePosition() {
+  const x = ref(0);
+  const y = ref(0);
+
+  function update(e) {
+    x.value = e.pageX;
+    y.value = e.pageY;
+  }
+
+  onMounted(() =&gt; {
+    window.addEventListener(&quot;mousemove&quot;, update);
+  });
+
+  onUnmounted(() =&gt; {
+    window.removeEventListener(&quot;mousemove&quot;, update);
+  });
+
+  return { x, y };
+}
+</code></pre><p>在頁面或組件中引用的方式</p>
+<pre tabindex="0"><code class="language-javascript=" data-lang="javascript=">// 引用整個函式
+import { useMousePosition } from &quot;./mouse&quot;;
+
+export default {
+  setup() {
+      // 定義並return 函式所return的東西即可
+    const { x, y } = useMousePosition();
+    return { x, y };
+  },
+};
+</code></pre><h2 id="composition-api核心">Composition API 核心</h2>
+<p>Compostion API 與 Options API 最大的差別：</p>
+<ul>
+<li>元件的實體物件內不會再有 data、computed、methods 與生命週期 Hooks 等屬性
+<span style="color:red;">（<strong>禁止再將上述屬性放到實體物件中</strong>）</span></li>
+<li>取代原先分散式的結構</li>
+<li>解決以 this 取得屬性所產生的問題</li>
+<li>以新的setup()函式取代</li>
+</ul>
+<h3 id="setup-啟動元件的位置">setup: 啟動元件的位置</h3>
+<ul>
+<li>增加可讀性</li>
+<li>要將模板內會用到的部分 return 出去</li>
+</ul>
+<pre tabindex="0"><code class="language-javascript=" data-lang="javascript=">setup(){
+// 將程式邏輯定義在todoList()內
+// 增加可讀性
+    const {todo, items, add , remove } = todoList();
+
+// 將模板會用到的部分 return 出去
+    return {
+    todo,
+    items,
+    add,
+    remove
+    };
+}
+</code></pre><h3 id="props-與-context">props 與 context</h3>
+<p>當setup()啟動時，會帶入兩個參數：props與context
+由於已經不再使用 this 來存取屬性，所以可以透過 setup 函式提供的 props 物件來取得 props 的內容</p>
+<ul>
+<li>取代原先以 this 存取屬性的 props</li>
+<li>context名稱可自訂</li>
+</ul>
+<pre tabindex="0"><code class="language-javascript=" data-lang="javascript=">export default {
+props {
+    defaultNum: {
+    type: Number,
+    defautl: 0
+    }
+},
+//注意要加上props
+    setup(props,context) {
+        // 透過prop物件取的對應的屬性
+        console.log(props.defaultNum);
+    }
+}
+</code></pre><h4 id="context物件">context物件</h4>
+<ul>
+<li>提供了 attrs, slots, emit 三種屬性，分別對應到元件的實體物件上</li>
+<li>可以透過 context.attrs、context.slots、context.emit 來使用</li>
+</ul>
+<pre tabindex="0"><code class="language-javascript=" data-lang="javascript=">&lt;template&gt;
+    &lt;div @click=&quot;clickInfo&quot;&gt;
+        子组件 == {{name1}}, {{title1}}
+    &lt;/div&gt;
+&lt;/template&gt;
+&lt;script&gt;
+import { reactive } from 'vue'
+export default {
+    name: 'child1',
+    props: {
+        name: String,
+        title: String
+    },
+    setup(props, context){
+        
+        const name1 = reactive(props.name)
+        const title1 = reactive(props.title)
+        // 子组件点击事件
+        const clickInfo = ()=&gt;{
+            // 抛出事件
+            context.emit('itemclick', {name: 'emitClick'})
+        }
+        return { name1, title1, clickInfo };
+    }
+}
+&lt;/script&gt;
+</code></pre><h3 id="ref-與-reactive--使值動態響應">ref 與 reactive ： 使值動態響應</h3>
+<p>在Compotision API 中，可以使用ref()來將數值進行包裝，並且回傳一個響應式的「物件」。
+這個ref()函式：</p>
+<ul>
+<li>可以包裝原始型別(primitive)，也可以包裝物件或陣列。</li>
+<li>必須後綴.value來讀取數值</li>
+</ul>
+<p>在這個物件內，會提供一個value的屬性，可以透過這個value來更新或讀取狀態內的數值：</p>
+<pre tabindex="0"><code class="language-javascript=" data-lang="javascript=">const count = ref(0);
+console.log(count.value); //0
+count.valut++;
+console.log(count.value); //1
+</code></pre><p>範例：count.vue</p>
+<pre tabindex="0"><code class="language-javascript=" data-lang="javascript=">&lt;template&gt;
+    &lt;h1&gt;{{ count }}&lt;/h1&gt;
+    &lt;button @click=&quot;plus&quot;&gt;Plus&lt;/button&gt;
+&lt;/template&gt;
+
+&lt;script&gt;
+    // 透過import 引入 ref
+    import { ref } from 'vue';
+    
+    export default {
+        setup(){
+            const count = ref(0)
+        }
+        
+        return {
+            // 透過 ref()包裝的數值可保有響應性
+            count,
+            plus,
+            // 純數值在模板中同樣可以渲染，但不會有響應性追蹤
+            nonReactiveCount: 0
+        }
+    }
+&lt;/script&gt;
+</code></pre><h4 id="ref-與-dom-節點替代ref">ref 與 Dom 節點：替代$ref</h4>
+<p>由於setup()中已無this.$ref可用，要存取DOM中的元素，可利用先前提到的<strong>ref()</strong>。</p>
+<pre tabindex="0"><code class="language-javascript=" data-lang="javascript=">&lt;template&gt;
+    &lt;!-- 模板內要加上 ref 屬性 --&gt;
+    &lt;div ref=&quot;root&quot;&gt;&lt;/div&gt;
+&lt;/template&gt;
+
+&lt;script&gt;
+    import { ref, onMounted } from 'vue'
+    
+    export default {
+        setup(){
+            // 這裡的 root 與 &lt;div ref=&quot;root&quot;&gt; 配對
+            const root = ref(null);
+            
+            //可以透過 root.value 取得實際的 DOM 元素
+            onMounted(()=&gt;{
+                console.log(root.value);
+            })
+        return {
+            root,
+            }
+        }
+    }
+&lt;/script&gt;
+
+</code></pre><h4 id="v-for-與-ref-複數動態節點--v-bindref">v-for 與 ref 複數動態節點 ： v-bind:ref</h4>
+<p>當 DOM 節點是透過 v-for 產生，同時又需要 ref 綁定模板時，
+可以透過 v-bind:ref 綁定到某個陣列：</p>
+<pre tabindex="0"><code class="language-htmlmixed=" data-lang="htmlmixed=">&lt;div
+    v-for=&quot;(item, i) in list&quot;
+    :ref=&quot; el =&gt; { divs[i] = el }&quot;
+&gt;
+    {{ item }}
+&lt;/div&gt;
+</code></pre><p>如此便能指定divs[0]、divs[1]、divs[2]所對應的<code>&lt;div&gt;</code>節點：</p>
+<pre tabindex="0"><code>export default {
+    setup(){
+        const list = reactive([1,2,3]);
+        const divs = ref ([]);
+        
+        //確保在每次更新前重置divs
+        onBeforeUpdate(()=&gt; {
+            divs.value = [];;lll
+        })
+        
+        return {
+            list,
+            divs,
+        }
+    }
+}
+</code></pre><h4 id="reactive--包裝響應式物件的另一種函式">reactive() ： 包裝響應式物件的另一種函式</h4>
+<p>除了ref()，也可以使用reactive()來包裝響應式物件。
+兩者最大的不同是:</p>
+<ul>
+<li>ref()可以包裝原始型別(primitive)，也可以包裝物件或陣列。</li>
+<li>reactive內的參數只能是「物件」</li>
+<li>reactive()存取內部屬性時，不需後綴.value</li>
+</ul>
+<pre tabindex="0"><code class="language-javascript=" data-lang="javascript=">&lt;template&gt;
+    &lt;h1&gt;{{ data.count }}&lt;/h1&gt;
+    &lt;button @click=&quot;data.plus&quot;&gt;plus&lt;/button&gt;
+&lt;/template&gt;
+
+&lt;script&gt;
+import { reactive } from &quot;vue&quot;
+export default {
+    setup(){
+        //reactive包裝物件
+        const data = reactive({
+        count:0,
+        plus() =&gt; data.count++
+        });
+        
+        return {
+            data
+        };
+    }
+};
+&lt;/scrpit&gt;
+</code></pre><ul>
+<li>reactive()回傳一個被ES6 Proxy代理過的物件，才能做到響應式的更新。</li>
+</ul>
+<h4 id="torefs-與-reactive解決es6解構語法造成的不響應問題">toRefs 與 reactive：解決ES6解構語法造成的不響應問題</h4>
+<p>使用ES6的展開運算子「...」時，會將物件從響應式狀態抽離，變成普通物件。
+因此需要改用 toRefs()</p>
+<pre tabindex="0"><code class="language-javascript=" data-lang="javascript=">&lt;template&gt;
+    &lt;h1&gt;{{ data.count }}&lt;/h1&gt;
+    &lt;button @click=&quot;data.plus&quot;&gt;plus&lt;/button&gt;
+&lt;/template&gt;
+
+&lt;script&gt;
+import { toRefs } from &quot;vue&quot;
+import counter from &quot;./counter&quot;
+
+export default {
+    setup(){
+        //reactive包裝物件
+        const count = counter();
+        
+        return {
+            ...toRefs(count)
+        };
+    }
+};
+&lt;/scrpit&gt;
+</code></pre><h3 id="computed">computed</h3>
+<p>Composition API的computed，要改為函數式的寫法：</p>
+<ul>
+<li>要後綴 .value 來讀取值</li>
+<li>computed 的參數為一個 getter 函式，並回傳一個 ref 物件</li>
+</ul>
+<pre tabindex="0"><code class="language-javascript=" data-lang="javascript=">&lt;template&gt;
+    &lt;h1&gt;{{ data.count }}&lt;/h1&gt;
+    &lt;h1&gt;{{ doubleCount }}&lt;/h1&gt;
+    &lt;h1&gt;{{ quadrupleCount }}&lt;/h1&gt;
+    
+    &lt;button @click=&quot;plus&quot;&gt;
+        Plus
+    &lt;/button&gt;
+&lt;/template&gt;
+
+&lt;script&gt;
+import { ref, computed } from &quot;vue&quot;
+import counter from &quot;./counter&quot;
+
+export default {
+    setup(){
+        const count = ref(0);
+        
+        // computed 的參數為一個 getter 函式，並回傳一個 ref 物件
+        const doubleCount = computed(()=&gt; count.value * 2);
+        
+        //使用 computed回傳的內容要後綴.value
+        const quadrupleCount = computed(()=&gt; doubleCount.value * 2);
+        const plus = () =&gt; count.value++;
+        
+        return {
+            count,
+            doubleCount,
+            quadrupleCount,
+            plus
+        };
+    }
+};
+&lt;/scrpit&gt;
+</code></pre><h4 id="computed-的-get-與-set">computed 的 get 與 set</h4>
+<ul>
+<li>computed 可以傳入 getter</li>
+<li>computed 可以傳入 get 與 set</li>
+</ul>
+<pre tabindex="0"><code class="language-javascript=" data-lang="javascript=">const count = ref(0)
+
+const plusOne = computed({
+    get:() =&gt; count.value + 1,
+    set:(val) =&gt; {
+        count.value = val - 1
+    }
+})
+</code></pre><h3 id="readonly">readonly</h3>
+<p>將物件傳到readonly()中，會回傳一個被代理過的「唯獨」物件：</p>
+<pre tabindex="0"><code class="language-javascript=" data-lang="javascript=">setup() {
+    const original = reactive({ count: 0 });
+    const copy = readonly(orignal);
+    const plus = () =&gt; original.count++;
+    
+    return {
+        original,
+        copy,
+        plus,
+    }
+}
+</code></pre><p>執行plus()後，original.count 會從 0 變成 1
+而透過readonly()包裝後回傳的copy物件，內部的.count 也會變成 1</p>
+<h3 id="methods">methods</h3>
+<ul>
+<li>Composition API 不再提供methods</li>
+<li>直接將函式透過setup() return出去即可</li>
+</ul>
+<h3 id="watch--watcheffect">watch &amp; watchEffect</h3>
+<ul>
+<li>在 Composition API中，要改為函數式語法</li>
+<li>可以觀察單一的 ref 物件</li>
+<li>也可以觀察響應的 reactive 物件</li>
+</ul>
+<p><strong>觀察單一 ref 物件</strong></p>
+<pre tabindex="0"><code class="language-javascript=" data-lang="javascript=">watch(count, (val, oldVal) =&gt; {
+    console.log(`new count is $(val), preCount is $(oldVal)`)
+})
+</code></pre><p><strong>觀察 reactive 物件</strong></p>
+<ul>
+<li>將傳入 watch()的參數count 改為 ()=&gt;data.count</li>
+</ul>
+<pre tabindex="0"><code class="language-javascript=" data-lang="javascript=">watch(
+    ()=&gt;data.count,
+    (val, oldVal) =&gt; { console.log(`new count is $(val), preCount is $(oldVal)`)}
+)
+</code></pre><p><strong>透過陣列同時 watch 多個屬性</strong></p>
+<ul>
+<li>callback 是共用的</li>
+</ul>
+<pre tabindex="0"><code>    watch(
+        [() =&gt; data.count,() =&gt; data.doubleCount],
+        ([newCount, newDoubleCount], [PreCount, PreDoubleCound]) =&gt; {
+            console.log(`new count is $(newCount), prevCount is ${prevCount}` )
+            console.log(`new doubleCount is $(newDoubleCount), prevDoubleCount is ${prevDoubleCount}` )
+        }
+    ) 
+</code></pre><p><strong>對不同屬性更新想執行不同的動作</strong></p>
+<ul>
+<li>可以分別寫兩個 watch</li>
+</ul>
+<p><strong>觀察陣列或物件</strong></p>
+<ul>
+<li>需要在watch()中加入第三個參數， <strong>{deep: true}</strong></li>
+</ul>
+<h4 id="watcheffect">watchEffect</h4>
+<ul>
+<li>當.value更新時，會呼叫callback</li>
+<li>與 watch的差別：
+<ul>
+<li>watchEffect會在 setup 剛建立時就執行一次</li>
+<li>不需要像watch一樣指定觀察的目標</li>
+<li>內部的callback函式對應數值更新後自動執行( 類似coumputed )</li>
+<li>watchEffect 無法取得更新前的數值</li>
+</ul>
+</li>
+</ul>
+<pre tabindex="0"><code class="language-javascript=" data-lang="javascript=">watchEffect(()=&gt; {
+    console.log(&quot;watchEffect&quot;, count.value);
+})
+</code></pre><p><strong>解除 watchEffect 觀察</strong></p>
+<ul>
+<li>個別的watchEffect() 被呼叫後會回傳一個屬於它的停止函式。</li>
+<li>想要解除觀察時，可以呼叫該watchEffect() 所回傳的函式來停止觀察。</li>
+<li>只能在現存元件中使用，如果元件被銷毀，provide 與 inject 的連結就會失效</li>
+</ul>
+<pre tabindex="0"><code class="language-javascript=" data-lang="javascript=">const stop1 = watchEffect(() =&gt; {
+    console.log(&quot;watchEffect&quot;, count.value)
+})
+</code></pre><h3 id="相依性注入-dependency-injection">相依性注入 (Dependency Injection)</h3>
+<ul>
+<li>Composition API 版的 provide 與 inject
+store.js</li>
+</ul>
+<pre tabindex="0"><code class="language-javascript=" data-lang="javascript=">    export {
+        todoList: symbol()
+    };
+</code></pre><ul>
+<li>在提供狀態的元件加上provide()，並將內容指定到對應的物件上：
+provide.vue</li>
+</ul>
+<pre tabindex="0"><code class="language-javascript=" data-lang="javascript=">//提供者元件
+import { ref, provide } from &quot;vue&quot;;
+import store from &quot;./store&quot;;
+
+export defautl {
+    setup(){
+        const todoList = ref([]);
+        
+        // 將 todoList 透過 provide 指定到 store.todoList
+        provide(store.todoList, todoList);
+        
+        return {
+            todoList,
+        };
+    },
+};
+</code></pre><ul>
+<li>在取用的元件，透過inject取出：
+inject.vue</li>
+</ul>
+<pre tabindex="0"><code class="language-javascript=" data-lang="javascript=">//取用者元件
+import { ref, inject } from &quot;vue&quot;;
+import store from &quot;./store&quot;;
+
+export default {
+    setup(){
+        // 透過inject 取出 store.todoList
+        const todoList = inject (store.todoList);
+        
+        return {
+            todoList,
+        }
+    }
+}
+</code></pre><h3 id="composition-api-的生命週期鉤子">Composition API 的生命週期鉤子</h3>
+<ul>
+<li>在 Composition API 中，生命鉤子改為函數式的語法：</li>
+</ul>
+<pre tabindex="0"><code class="language-javascript=" data-lang="javascript=">//使用時先import
+import { onMounted, onUpdated, onUnmounted } from 'vue';
+
+const MyComponent = {
+    setup() {
+    
+        onMounted(()=&gt; {
+            console.log('mounted');
+        });
+        
+        onUpdated(()=&gt; {
+            console.log('updated!');
+        })
+        
+        onUnmounted(()=&gt; {
+            console.log('unmounted!')
+        })
+    }
+}
+</code></pre>
+      </article>
+      
+
+      <div id="disqus_thread"></div>
+<script>
+    
+
+    
+
+    (function() { 
+    var d = document, s = d.createElement('script');
+    s.src = 'https://raellen-2.disqus.com/embed.js';
+    s.setAttribute('data-timestamp', +new Date());
+    (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+      <div class="mt-10">
+        <script src="https://utteranc.es/client.js"
+          repo="Raellen/commentsforblog"
+          issue-term="pathname"
+          theme="github-light"
+          crossorigin="anonymous"
+          async>
+        </script>
+      </div>
+    </div>
+  </div>
+</div>
+
+  </main>
+  <footer class="footer">
+  <div class="ax-l-i max-w-6xl">
+    <nav class="flex items-center justify-center">
+    </nav>
+
+    <div class="footer-copyright text-sm text-center text-gray-400 mt-4">
+      &#169; 2022 RAELLEN 
+    </div>
+    
+  </div>
+</footer>
+
+<script src="/bundle.js?v=1669303559"></script>
+
+
+</body>
+</html>
