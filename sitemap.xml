@@ -4,6 +4,14 @@
     <loc>https://raellen.github.io/home/welcome/</loc>
   </url>
   <url>
+    <loc>https://raellen.github.io/vue3%E5%AD%B8%E7%BF%92%E7%AD%86%E8%A8%98/</loc>
+    <lastmod>2022-11-24T15:00:00Z</lastmod>
+  </url>
+  <url>
+    <loc>https://raellen.github.io/tags/javasript/</loc>
+    <lastmod>2022-11-24T15:00:00Z</lastmod>
+  </url>
+  <url>
     <loc>https://raellen.github.io/posts/</loc>
     <lastmod>2022-11-24T15:00:00Z</lastmod>
   </url>
@@ -12,7 +20,11 @@
     <lastmod>2022-11-24T15:00:00Z</lastmod>
   </url>
   <url>
-    <loc>https://raellen.github.io/vue3%E5%AD%B8%E7%BF%92%E7%AD%86%E8%A8%98/</loc>
+    <loc>https://raellen.github.io/tags/</loc>
+    <lastmod>2022-11-24T15:00:00Z</lastmod>
+  </url>
+  <url>
+    <loc>https://raellen.github.io/tags/vue/</loc>
     <lastmod>2022-11-24T15:00:00Z</lastmod>
   </url>
   <url>
@@ -28,19 +40,7 @@
     <lastmod>2021-03-30T14:00:00Z</lastmod>
   </url>
   <url>
-    <loc>https://raellen.github.io/tags/</loc>
-    <lastmod>2021-03-30T14:00:00Z</lastmod>
-  </url>
-  <url>
     <loc>https://raellen.github.io/vue%E5%9F%BA%E6%9C%AC%E4%BB%8B%E7%B4%B9/</loc>
-    <lastmod>2021-03-24T03:00:00Z</lastmod>
-  </url>
-  <url>
-    <loc>https://raellen.github.io/tags/javasript/</loc>
-    <lastmod>2021-03-24T03:00:00Z</lastmod>
-  </url>
-  <url>
-    <loc>https://raellen.github.io/tags/vue/</loc>
     <lastmod>2021-03-24T03:00:00Z</lastmod>
   </url>
   <url>
