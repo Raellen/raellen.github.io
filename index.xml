@@ -17,7 +17,7 @@
     </item>
     
     <item>
-      <title>[筆記] Vue 3 改版後與 Vue 2 的差異</title>
+      <title>[程式] Vue 3 改版後與 Vue 2 的差異</title>
       <link>https://raellen.github.io/vue3%E5%AD%B8%E7%BF%92%E7%AD%86%E8%A8%98/</link>
       <pubDate>Thu, 24 Nov 2022 15:00:00 +0000</pubDate>
       
@@ -56,15 +56,6 @@
  Vue.js Vue CLI 2 Vue Router、Vuex    前端開發
  JavaScript、ES6 語法 API 串接 AJAX    其他技能
  Gitflow SCSS RWD Tailwind    </description>
-    </item>
-    
-    <item>
-      <title>Gallery</title>
-      <link>https://raellen.github.io/gallery/</link>
-      <pubDate>Wed, 01 Jan 2020 00:00:00 +0000</pubDate>
-      
-      <guid>https://raellen.github.io/gallery/</guid>
-      <description></description>
     </item>
     
   </channel>
